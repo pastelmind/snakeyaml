@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>CollectionStartEvent.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright (c) 2008, http://www.snakeyaml.org</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.yaml.snakeyaml.events;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.yaml.snakeyaml.DumperOptions;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.yaml.snakeyaml.error.Mark;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Base class for the start events of the collection nodes.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public abstract class CollectionStartEvent extends NodeEvent {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final String tag;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // The implicit flag of a collection start event indicates if the tag may be</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // omitted when the collection is emitted</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final boolean implicit;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // flag indicates if a collection is block or flow</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final DumperOptions.FlowStyle flowStyle;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public CollectionStartEvent(String anchor, String tag, boolean implicit, Mark startMark,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            Mark endMark, DumperOptions.FlowStyle flowStyle) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super(anchor, startMark, endMark);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.tag = tag;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.implicit = implicit;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_37'>1</a>
+<span>
+1. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if(flowStyle == null) throw new NullPointerException(&#34;Flow style must be provided.&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.flowStyle = flowStyle;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Existed in older versions but replaced with {@link DumperOptions.FlowStyle}-based constructor.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Restored in v1.22 for backwards compatibility.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @deprecated Since restored in v1.22.  Use {@link CollectionStartEvent#CollectionStartEvent(String, String, boolean, Mark, Mark, org.yaml.snakeyaml.DumperOptions.FlowStyle) }.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Deprecated</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public CollectionStartEvent(String anchor, String tag, boolean implicit, Mark startMark, </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            Mark endMark, Boolean flowStyle) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        this(anchor, tag, implicit, startMark, endMark, DumperOptions.FlowStyle.fromBoolean(flowStyle));</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Tag of this collection.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return The tag of this collection, or &#60;code&#62;null&#60;/code&#62; if no explicit</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *         tag is available.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String getTag() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_59'/>
+59
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_59'>1</a>
+<span>
+1. getTag : replaced return value with &#34;&#34; for org/yaml/snakeyaml/events/CollectionStartEvent::getTag &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.tag;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#60;code&#62;true&#60;/code&#62; if the tag can be omitted while this collection is</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * emitted.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return True if the tag can be omitted while this collection is emitted.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean getImplicit() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_69'/>
+69
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_69'>2</a>
+<span>
+1. getImplicit : replaced boolean return with false for org/yaml/snakeyaml/events/CollectionStartEvent::getImplicit &rarr; KILLED<br/>
+2. getImplicit : replaced boolean return with true for org/yaml/snakeyaml/events/CollectionStartEvent::getImplicit &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.implicit;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#60;code&#62;true&#60;/code&#62; if this collection is in flow style, &#60;code&#62;false&#60;/code&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * for block style.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return If this collection is in flow style.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public DumperOptions.FlowStyle getFlowStyle() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_79'/>
+79
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_79'>1</a>
+<span>
+1. getFlowStyle : replaced return value with null for org/yaml/snakeyaml/events/CollectionStartEvent::getFlowStyle &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.flowStyle;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected String getArguments() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_84'/>
+84
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_84'>1</a>
+<span>
+1. getArguments : replaced return value with &#34;&#34; for org/yaml/snakeyaml/events/CollectionStartEvent::getArguments &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return super.getArguments() + &#34;, tag=&#34; + tag + &#34;, implicit=&#34; + implicit;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isFlow() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_88'/>
+88
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_88'>2</a>
+<span>
+1. isFlow : replaced boolean return with true for org/yaml/snakeyaml/events/CollectionStartEvent::isFlow &rarr; KILLED<br/>
+2. isFlow : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return DumperOptions.FlowStyle.FLOW == flowStyle;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77293d24_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@77293d24_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>org.yaml.snakeyaml.parser.ParserImplTest.testGetEvent(org.yaml.snakeyaml.parser.ParserImplTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@77293d24_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_59'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTag<br/><b>Killed by : </b>org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest.testEmptyBean6(org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest)</span></span> replaced return value with &#34;&#34; for org/yaml/snakeyaml/events/CollectionStartEvent::getTag &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@77293d24_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_69'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getImplicit<br/><b>Killed by : </b>org.yaml.snakeyaml.representer.SafeRepresenterTest.testEmptyArray(org.yaml.snakeyaml.representer.SafeRepresenterTest)</span></span> replaced boolean return with false for org/yaml/snakeyaml/events/CollectionStartEvent::getImplicit &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getImplicit<br/><b>Killed by : </b>org.yaml.snakeyaml.issues.issue332.DataTest.testGetUnit(org.yaml.snakeyaml.issues.issue332.DataTest)</span></span> replaced boolean return with true for org/yaml/snakeyaml/events/CollectionStartEvent::getImplicit &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@77293d24_79'>79</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_79'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getFlowStyle<br/><b>Killed by : </b>org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest.testEmptyBean6(org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest)</span></span> replaced return value with null for org/yaml/snakeyaml/events/CollectionStartEvent::getFlowStyle &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@77293d24_84'>84</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_84'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getArguments<br/><b>Killed by : </b>none</span></span> replaced return value with &#34;&#34; for org/yaml/snakeyaml/events/CollectionStartEvent::getArguments &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@77293d24_88'>88</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@77293d24_88'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isFlow<br/><b>Killed by : </b>org.yaml.snakeyaml.EnumTest.testDumpEnumListNoAnchor(org.yaml.snakeyaml.EnumTest)</span></span> replaced boolean return with true for org/yaml/snakeyaml/events/CollectionStartEvent::isFlow &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isFlow<br/><b>Killed by : </b>org.yaml.snakeyaml.constructor.ConstructorSequenceTest.testDumpList(org.yaml.snakeyaml.constructor.ConstructorSequenceTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>BOOLEAN_FALSE_RETURN</li>
+<li class='mutator'>BOOLEAN_TRUE_RETURN</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>EMPTY_RETURN_VALUES</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>NULL_RETURN_VALUES</li>
+<li class='mutator'>PRIMITIVE_RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.yaml.snakeyaml.YamlParseTest.testParse(org.yaml.snakeyaml.YamlParseTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue203.GenericTest.testGenericInterface(org.yaml.snakeyaml.issues.issue203.GenericTest) (3 ms)</li><li>org.yaml.snakeyaml.Chapter2_4Test.testExample_2_21(org.yaml.snakeyaml.Chapter2_4Test) (7 ms)</li><li>org.yaml.snakeyaml.issues.issue127.NullAliasTest.testRespresenter(org.yaml.snakeyaml.issues.issue127.NullAliasTest) (1 ms)</li><li>org.yaml.snakeyaml.Chapter2_3Test.testExample_2_17_single(org.yaml.snakeyaml.Chapter2_3Test) (5 ms)</li><li>org.yaml.snakeyaml.CollectionWithBeanYamlTest.testYamlMap(org.yaml.snakeyaml.CollectionWithBeanYamlTest) (3 ms)</li><li>org.yaml.snakeyaml.constructor.VectorTest.testVector(org.yaml.snakeyaml.constructor.VectorTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue72.CollectionTest.testCollectionList(org.yaml.snakeyaml.issues.issue72.CollectionTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue55.JavaBeanListTest.testYaml(org.yaml.snakeyaml.issues.issue55.JavaBeanListTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue163.LinearScalaTralingTest.testClipChomping(org.yaml.snakeyaml.issues.issue163.LinearScalaTralingTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.ImplicitTagsTest.testLoadClassTag(org.yaml.snakeyaml.constructor.ImplicitTagsTest) (8 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testChildrenSetAsRoot(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (5 ms)</li><li>org.yaml.snakeyaml.array.PrimitiveArrayTest.testStringCharArray(org.yaml.snakeyaml.array.PrimitiveArrayTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testOK06(org.yaml.snakeyaml.issues.issue9.NopropTest) (2 ms)</li><li>org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorErrorsTest.test3(org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorErrorsTest) (6 ms)</li><li>org.yaml.snakeyaml.Chapter2_4Test.testExample_2_20(org.yaml.snakeyaml.Chapter2_4Test) (8 ms)</li><li>org.yaml.snakeyaml.issues.issue40.DogFoodBeanTest.testBigDecimalPrecision(org.yaml.snakeyaml.issues.issue40.DogFoodBeanTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue49.CalendarTest.testDumpDstIsNotTheSame(org.yaml.snakeyaml.issues.issue49.CalendarTest) (3 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testPointBlock(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue386.DuplicateKeysOrderTest.deleteDuplicatKeysInCorrectOrder(org.yaml.snakeyaml.issues.issue386.DuplicateKeysOrderTest) (8 ms)</li><li>org.yaml.snakeyaml.array.PrimitiveArrayTest.testPromotion(org.yaml.snakeyaml.array.PrimitiveArrayTest) (2 ms)</li><li>org.yaml.snakeyaml.types.StrTagTest.testIssueId6(org.yaml.snakeyaml.types.StrTagTest) (1 ms)</li><li>org.yaml.snakeyaml.representer.RepresenterTest.testRepresenter(org.yaml.snakeyaml.representer.RepresenterTest) (3 ms)</li><li>org.yaml.snakeyaml.constructor.ImplicitTagsTest.testRootMap(org.yaml.snakeyaml.constructor.ImplicitTagsTest) (4 ms)</li><li>org.yaml.snakeyaml.constructor.IncompleteBeanConstructorTest.testRepresentor(org.yaml.snakeyaml.constructor.IncompleteBeanConstructorTest) (1 ms)</li><li>org.yaml.snakeyaml.representer.FilterPropertyToDumpTest.testFilterPropertyWithTypeDesciptionIncludes(org.yaml.snakeyaml.representer.FilterPropertyToDumpTest) (16 ms)</li><li>org.yaml.snakeyaml.issues.issue348.MultiLevelImmutableTest.testUnexpectedRecursive(org.yaml.snakeyaml.issues.issue348.MultiLevelImmutableTest) (9 ms)</li><li>org.yaml.snakeyaml.constructor.ClassTagsTest.testLoadClassNoRoot(org.yaml.snakeyaml.constructor.ClassTagsTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue114.PreserveTypeTest.testPreserveType2(org.yaml.snakeyaml.issues.issue114.PreserveTypeTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testOK05(org.yaml.snakeyaml.issues.issue9.NopropTest) (2 ms)</li><li>org.yaml.snakeyaml.types.SeqTagTest.testCollection(org.yaml.snakeyaml.types.SeqTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest.testArrayAsMapValueWithTypeDespriptor(org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest) (12 ms)</li><li>org.yaml.snakeyaml.issues.issue377.BillionLaughsAttackTest.billionLaughsAttackLoaded(org.yaml.snakeyaml.issues.issue377.BillionLaughsAttackTest) (8 ms)</li><li>org.yaml.snakeyaml.issues.issue145.LineNumberInExceptionTest.testCompleteThing(org.yaml.snakeyaml.issues.issue145.LineNumberInExceptionTest) (4 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testScalarContructor(org.yaml.snakeyaml.constructor.BeanConstructorTest) (4 ms)</li><li>org.yaml.snakeyaml.EnumTest.testLoadEnumBean2(org.yaml.snakeyaml.EnumTest) (22 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testABWithCustomTag(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (3 ms)</li><li>org.yaml.snakeyaml.constructor.MockDateBeanConstructorTest.testConstructor(org.yaml.snakeyaml.constructor.MockDateBeanConstructorTest) (4 ms)</li><li>org.yaml.snakeyaml.reader.IoReaderTest.testBigInput(org.yaml.snakeyaml.reader.IoReaderTest) (31 ms)</li><li>org.yaml.snakeyaml.issues.issue150.YamlLoadAsIssueTest.loadConstructsDocumentCorrectly(org.yaml.snakeyaml.issues.issue150.YamlLoadAsIssueTest) (2 ms)</li><li>org.yaml.snakeyaml.types.NullTagTest.testNoAnchors(org.yaml.snakeyaml.types.NullTagTest) (1 ms)</li><li>org.yaml.snakeyaml.representer.RepresentFieldTest.testStaticField(org.yaml.snakeyaml.representer.RepresentFieldTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue11.YamlMapTest.testYamlMapBean(org.yaml.snakeyaml.issues.issue11.YamlMapTest) (4 ms)</li><li>org.yaml.snakeyaml.emitter.EmitterTest.testWritePlain(org.yaml.snakeyaml.emitter.EmitterTest) (1 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testChildrenListRoot(org.yaml.snakeyaml.recursive.HumanTest) (33 ms)</li><li>org.yaml.snakeyaml.issues.issue68.NonAsciiCharacterTest.testLoad(org.yaml.snakeyaml.issues.issue68.NonAsciiCharacterTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue40.DogFoodBeanTest.testBigDecimalNoRootTag(org.yaml.snakeyaml.issues.issue40.DogFoodBeanTest) (4 ms)</li><li>org.yaml.snakeyaml.emitter.EmitterTest.testSplitLineExpectFirstFlowMappingKey(org.yaml.snakeyaml.emitter.EmitterTest) (3 ms)</li><li>org.yaml.snakeyaml.types.BinaryTagTest.testBinaryOut(org.yaml.snakeyaml.types.BinaryTagTest) (0 ms)</li><li>org.yaml.snakeyaml.Chapter2_3Test.testExample_2_18(org.yaml.snakeyaml.Chapter2_3Test) (10 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testOK04(org.yaml.snakeyaml.issues.issue9.NopropTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue183.NumberBeanTest.testNumberAsDoubleInfinity(org.yaml.snakeyaml.issues.issue183.NumberBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue103.MergingTest.testMergeWithDefaultMap(org.yaml.snakeyaml.issues.issue103.MergingTest) (14 ms)</li><li>org.yaml.snakeyaml.issues.issue332.DataTest.testGetUnit(org.yaml.snakeyaml.issues.issue332.DataTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.ConstructorMappingTest.testGetDefaultMap(org.yaml.snakeyaml.constructor.ConstructorMappingTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue306.UuidSupportTest.dumpBean(org.yaml.snakeyaml.issues.issue306.UuidSupportTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue139.UniqueKeyTest.testNotUnique(org.yaml.snakeyaml.issues.issue139.UniqueKeyTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue116.NoFieldsTest.testEmptyClass(org.yaml.snakeyaml.issues.issue116.NoFieldsTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue377.ReferencesTest.parseManyAliasesForCollections(org.yaml.snakeyaml.issues.issue377.ReferencesTest) (4715 ms)</li><li>org.yaml.snakeyaml.parser.ParserImplTest.testGetEvent(org.yaml.snakeyaml.parser.ParserImplTest) (1 ms)</li><li>org.yaml.snakeyaml.Chapter2_4Test.testExample_2_22(org.yaml.snakeyaml.Chapter2_4Test) (9 ms)</li><li>org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorExampleTest.test12withList(org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorExampleTest) (6 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testOK03(org.yaml.snakeyaml.issues.issue9.NopropTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue426.NullDuplicateKeyTest.testDuplicateKeyIsAllowed(org.yaml.snakeyaml.issues.issue426.NullDuplicateKeyTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue48.SkipJavaBeanPropertyTest.testWithoutNull(org.yaml.snakeyaml.issues.issue48.SkipJavaBeanPropertyTest) (1 ms)</li><li>org.yaml.snakeyaml.emitter.EmitterTest.testSplitLineExpectFlowSequenceItem(org.yaml.snakeyaml.emitter.EmitterTest) (12 ms)</li><li>org.yaml.snakeyaml.json.JsonTest.testNoSpaceBothDoubleQuoted(org.yaml.snakeyaml.json.JsonTest) (2 ms)</li><li>org.yaml.snakeyaml.types.BoolTagTest.testBoolOutAsEmpty2(org.yaml.snakeyaml.types.BoolTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInMapTest.test3(org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInMapTest) (2 ms)</li><li>org.yaml.snakeyaml.YamlParseTest.testParseManyDocuments(org.yaml.snakeyaml.YamlParseTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue73.RecursiveSortedSetTest.testDumpException(org.yaml.snakeyaml.issues.issue73.RecursiveSortedSetTest) (8 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testOK02(org.yaml.snakeyaml.issues.issue9.NopropTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest.defaultConfigUniqueKeysWorks(org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest) (3 ms)</li><li>org.yaml.snakeyaml.JavaBeanWithNullValuesTest.testNoRootTag(org.yaml.snakeyaml.JavaBeanWithNullValuesTest) (11 ms)</li><li>org.yaml.snakeyaml.issues.issue318.ContextClassLoaderTest.domainInDifferentConstructor(org.yaml.snakeyaml.issues.issue318.ContextClassLoaderTest) (498 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testPointOnlyOneArgument(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue49.CalendarTest.testDumpDstIsTheSame(org.yaml.snakeyaml.issues.issue49.CalendarTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue60.SkipBeanTest.testSkipNull(org.yaml.snakeyaml.issues.issue60.SkipBeanTest) (13 ms)</li><li>org.yaml.snakeyaml.immutable.MoreImmutablesTest.testAwtColor(org.yaml.snakeyaml.immutable.MoreImmutablesTest) (84 ms)</li><li>org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorExampleTest.test4(org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorExampleTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue56.PerlTest.testMaps(org.yaml.snakeyaml.issues.issue56.PerlTest) (59 ms)</li><li>org.yaml.snakeyaml.issues.issue115.ParameterizedJavaBeanTest.testAsStandalone(org.yaml.snakeyaml.issues.issue115.ParameterizedJavaBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.ConstructorSequenceTest.testGetList(org.yaml.snakeyaml.constructor.ConstructorSequenceTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest.testYaml(org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest) (6 ms)</li><li>org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorErrorsTest.test8(org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorErrorsTest) (4 ms)</li><li>org.yaml.snakeyaml.Chapter2_4Test.testExample_2_26(org.yaml.snakeyaml.Chapter2_4Test) (6 ms)</li><li>org.yaml.snakeyaml.types.BoolTagTest.testBoolTag(org.yaml.snakeyaml.types.BoolTagTest) (1 ms)</li><li>org.yaml.snakeyaml.types.NullTagTest.testNull(org.yaml.snakeyaml.types.NullTagTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInMapTest.testTheOnlyCounterIntuitiveCase(org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInMapTest) (2 ms)</li><li>org.yaml.snakeyaml.representer.SafeRepresenterTest.testDate(org.yaml.snakeyaml.representer.SafeRepresenterTest) (9 ms)</li><li>org.yaml.snakeyaml.representer.SafeRepresenterTest.testStyle(org.yaml.snakeyaml.representer.SafeRepresenterTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue183.NumberBeanTest.testNumberAsDouble(org.yaml.snakeyaml.issues.issue183.NumberBeanTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInSetTest.testSet2(org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInSetTest) (1 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testBeanRing(org.yaml.snakeyaml.recursive.HumanTest) (18 ms)</li><li>org.yaml.snakeyaml.JavaBeanWithNullValuesTest.testNull(org.yaml.snakeyaml.JavaBeanWithNullValuesTest) (6 ms)</li><li>org.yaml.snakeyaml.issues.issue60.CustomOrderTest.testUnsorted(org.yaml.snakeyaml.issues.issue60.CustomOrderTest) (5 ms)</li><li>org.yaml.snakeyaml.Chapter2_1Test.testExample_2_6(org.yaml.snakeyaml.Chapter2_1Test) (13 ms)</li><li>org.yaml.snakeyaml.types.IntTagTest.testInt(org.yaml.snakeyaml.types.IntTagTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue102.BigDataLoadTest.testBigStreamData(org.yaml.snakeyaml.issues.issue102.BigDataLoadTest) (5092 ms)</li><li>org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorErrorsTest.test5(org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorErrorsTest) (3 ms)</li><li>org.yaml.snakeyaml.types.StrTagTest.testStringShorthand(org.yaml.snakeyaml.types.StrTagTest) (1 ms)</li><li>org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorExampleTest.test11withoutPackageNames(org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorExampleTest) (6 ms)</li><li>org.yaml.snakeyaml.representer.RepresentFieldTest.testRepresent1(org.yaml.snakeyaml.representer.RepresentFieldTest) (11 ms)</li><li>org.yaml.snakeyaml.EnumTest.testDumpEnumList(org.yaml.snakeyaml.EnumTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.FilterClassesConstructorTest.testGetClassForName(org.yaml.snakeyaml.constructor.FilterClassesConstructorTest) (5 ms)</li><li>org.yaml.snakeyaml.representer.SafeRepresenterTest.testStyle2Pretty(org.yaml.snakeyaml.representer.SafeRepresenterTest) (4 ms)</li><li>org.yaml.snakeyaml.constructor.ConstructorSequenceTest.testDumpList(org.yaml.snakeyaml.constructor.ConstructorSequenceTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue145.LineNumberInExceptionTest.testLineReport(org.yaml.snakeyaml.issues.issue145.LineNumberInExceptionTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testCharacter(org.yaml.snakeyaml.constructor.BeanConstructorTest) (13 ms)</li><li>org.yaml.snakeyaml.issues.issue177.PointBeanTest.testNoSingleQuoteForBlockStyle(org.yaml.snakeyaml.issues.issue177.PointBeanTest) (6 ms)</li><li>org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest.testEmptyBean1(org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest) (1 ms)</li><li>org.yaml.snakeyaml.json.JsonTest.testLooksLikeJson(org.yaml.snakeyaml.json.JsonTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest.testDumpCustomTag(org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest) (2 ms)</li><li>org.yaml.snakeyaml.javabeans.TriangleBeanTest.testClassNotFound(org.yaml.snakeyaml.javabeans.TriangleBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.emitter.EmitterTest.testWriteIndicatorIndent(org.yaml.snakeyaml.emitter.EmitterTest) (2 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testChildrenMapAsRoot(org.yaml.snakeyaml.recursive.HumanTest) (7 ms)</li><li>org.yaml.snakeyaml.issues.issue94.ChangeRuntimeClassTest.testWithGlobalTagUsingTypeDescription(org.yaml.snakeyaml.issues.issue94.ChangeRuntimeClassTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue192.EqualsSignTest.testMappingNode(org.yaml.snakeyaml.issues.issue192.EqualsSignTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue73.DumpSetAsSequenceExampleTest.testDumpFlow(org.yaml.snakeyaml.issues.issue73.DumpSetAsSequenceExampleTest) (5 ms)</li><li>org.yaml.snakeyaml.representer.FilterPropertyToDumpTest.testFilterPropertyInJavaBeanDumper(org.yaml.snakeyaml.representer.FilterPropertyToDumpTest) (2 ms)</li><li>org.yaml.snakeyaml.array.PrimitiveArrayTest.testMultiDimensional(org.yaml.snakeyaml.array.PrimitiveArrayTest) (43 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testChildren3(org.yaml.snakeyaml.recursive.HumanTest) (12 ms)</li><li>org.yaml.snakeyaml.YamlComposeTest.testComposeManyDocuments(org.yaml.snakeyaml.YamlComposeTest) (18 ms)</li><li>org.yaml.snakeyaml.issues.issue116.NoFieldsTest.testHiddenParameter(org.yaml.snakeyaml.issues.issue116.NoFieldsTest) (3 ms)</li><li>org.yaml.snakeyaml.composer.ComposerImplTest.testComposeBean(org.yaml.snakeyaml.composer.ComposerImplTest) (1 ms)</li><li>org.yaml.snakeyaml.Chapter2_3Test.testExample_2_17(org.yaml.snakeyaml.Chapter2_3Test) (11 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testBA(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (7 ms)</li><li>org.yaml.snakeyaml.DumperOptionsTest.testDefaultFlowStyle(org.yaml.snakeyaml.DumperOptionsTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue176.SingleQuoteTest.testSingleQuoteForFlowStyle(org.yaml.snakeyaml.issues.issue176.SingleQuoteTest) (1 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testSuperColor(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (2 ms)</li><li>org.yaml.snakeyaml.types.StrTagTest.testStringTag(org.yaml.snakeyaml.types.StrTagTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.IncompleteBeanConstructorTest.testConstructor2(org.yaml.snakeyaml.constructor.IncompleteBeanConstructorTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue73.RecursiveSortedSetTest.testLoadRecursiveTest(org.yaml.snakeyaml.issues.issue73.RecursiveSortedSetTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue94.ChangeRuntimeClassTest.testNoTagWithTypeDescription(org.yaml.snakeyaml.issues.issue94.ChangeRuntimeClassTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest.testLoadRootSet3(org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInMapTest.test1(org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInMapTest) (2 ms)</li><li>org.yaml.snakeyaml.Chapter2_4Test.testExample_2_23(org.yaml.snakeyaml.Chapter2_4Test) (7 ms)</li><li>org.yaml.snakeyaml.javabeans.TriangleBeanTest.testGetTriangle(org.yaml.snakeyaml.javabeans.TriangleBeanTest) (4 ms)</li><li>org.yaml.snakeyaml.constructor.ConstructorTest.testWrongName(org.yaml.snakeyaml.constructor.ConstructorTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.ConstructorTest.testJavaBeanLoad(org.yaml.snakeyaml.constructor.ConstructorTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue377.ReferencesTest.referencesWithRecursiveKeysNotAllowedByDefault(org.yaml.snakeyaml.issues.issue377.ReferencesTest) (20 ms)</li><li>org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInListTest.testListNoSpaces(org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInListTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue47.ReadOnlyPropertiesTest.testBean2(org.yaml.snakeyaml.issues.issue47.ReadOnlyPropertiesTest) (2 ms)</li><li>org.yaml.snakeyaml.immutable.DogImmutableTest.testHouse(org.yaml.snakeyaml.immutable.DogImmutableTest) (3 ms)</li><li>org.yaml.snakeyaml.json.JsonTest.testConstructNullFromEmpty(org.yaml.snakeyaml.json.JsonTest) (2 ms)</li><li>org.yaml.snakeyaml.EnumTest.testLoadEnumBean(org.yaml.snakeyaml.EnumTest) (3 ms)</li><li>org.yaml.snakeyaml.DumperOptionsTest.testLineBreak(org.yaml.snakeyaml.DumperOptionsTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue154.MissingPropertyTest.testUnknownField(org.yaml.snakeyaml.issues.issue154.MissingPropertyTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest.testDump(org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue46.FileTest.test(org.yaml.snakeyaml.issues.issue46.FileTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue99.YamlBase64Test.testRedefineBinaryTag(org.yaml.snakeyaml.issues.issue99.YamlBase64Test) (7 ms)</li><li>org.yaml.snakeyaml.types.IntTagTest.testIntTag(org.yaml.snakeyaml.types.IntTagTest) (1 ms)</li><li>org.yaml.snakeyaml.javabeans.TriangleBeanTest.testClassAndTag(org.yaml.snakeyaml.javabeans.TriangleBeanTest) (5 ms)</li><li>org.yaml.snakeyaml.Chapter2_2Test.testExample_2_7(org.yaml.snakeyaml.Chapter2_2Test) (6 ms)</li><li>org.yaml.snakeyaml.types.SeqTagTest.testStringArray(org.yaml.snakeyaml.types.SeqTagTest) (1 ms)</li><li>org.yaml.snakeyaml.DumperOptionsTest.testTags(org.yaml.snakeyaml.DumperOptionsTest) (31 ms)</li><li>org.yaml.snakeyaml.issues.issue99.YamlBase64Test.testYamlBase64Loading(org.yaml.snakeyaml.issues.issue99.YamlBase64Test) (7 ms)</li><li>org.yaml.snakeyaml.issues.issue40.DogFoodBeanTest.testOwnBigDecimal(org.yaml.snakeyaml.issues.issue40.DogFoodBeanTest) (1 ms)</li><li>org.yaml.snakeyaml.composer.ComposerImplTest.testNodeAnchor(org.yaml.snakeyaml.composer.ComposerImplTest) (1 ms)</li><li>org.yaml.snakeyaml.types.TimestampTagTest.testTimestampShorthand(org.yaml.snakeyaml.types.TimestampTagTest) (1 ms)</li><li>org.yaml.snakeyaml.types.MapTagTest.testMapYaml11(org.yaml.snakeyaml.types.MapTagTest) (6 ms)</li><li>org.yaml.snakeyaml.issues.issue56.PerlTest.testJavaBean(org.yaml.snakeyaml.issues.issue56.PerlTest) (55 ms)</li><li>org.yaml.snakeyaml.issues.issue58.NullValueDumperTest.testNullListElement(org.yaml.snakeyaml.issues.issue58.NullValueDumperTest) (2 ms)</li><li>org.yaml.snakeyaml.Chapter2_1Test.testExample_2_2(org.yaml.snakeyaml.Chapter2_1Test) (24 ms)</li><li>org.yaml.snakeyaml.YamlTest.testOneDocument(org.yaml.snakeyaml.YamlTest) (2 ms)</li><li>org.yaml.snakeyaml.generics.ObjectValuesTest.testObjectValues(org.yaml.snakeyaml.generics.ObjectValuesTest) (6 ms)</li><li>org.yaml.snakeyaml.issues.issue48.SkipJavaBeanPropertyTest.testWithNull(org.yaml.snakeyaml.issues.issue48.SkipJavaBeanPropertyTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue144.FloatPropertyTest.testFloatAsJavaBeanProperty(org.yaml.snakeyaml.issues.issue144.FloatPropertyTest) (2 ms)</li><li>org.yaml.snakeyaml.types.MergeTagTest.testMerge(org.yaml.snakeyaml.types.MergeTagTest) (9 ms)</li><li>org.yaml.snakeyaml.types.StrTagTest.testString(org.yaml.snakeyaml.types.StrTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue374.NumberAsJavaBeanPropertyTest.testNumberAsInteger(org.yaml.snakeyaml.issues.issue374.NumberAsJavaBeanPropertyTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue73.RecursiveSortedSetTest.testLoadException(org.yaml.snakeyaml.issues.issue73.RecursiveSortedSetTest) (3 ms)</li><li>org.yaml.snakeyaml.Example2_24Test.testExample_2_24(org.yaml.snakeyaml.Example2_24Test) (10 ms)</li><li>org.yaml.snakeyaml.Example2_27Test.testExample_2_27(org.yaml.snakeyaml.Example2_27Test) (45 ms)</li><li>org.yaml.snakeyaml.generics.ObjectValuesTest.testObjectValuesWithParam(org.yaml.snakeyaml.generics.ObjectValuesTest) (7 ms)</li><li>org.yaml.snakeyaml.issues.issue55.YamlFieldAccessCollectionTest.testYamlFailure(org.yaml.snakeyaml.issues.issue55.YamlFieldAccessCollectionTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue149.GlobalDirectivesTest.testDirectives(org.yaml.snakeyaml.issues.issue149.GlobalDirectivesTest) (6 ms)</li><li>org.yaml.snakeyaml.issues.issue374.NumberAsJavaBeanPropertyTest.testNumberAsLong(org.yaml.snakeyaml.issues.issue374.NumberAsJavaBeanPropertyTest) (1 ms)</li><li>org.yaml.snakeyaml.parser.ParserImplTest.testGetEvent2(org.yaml.snakeyaml.parser.ParserImplTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue137.SupplementaryCharactersTest.testLoadingEmoji(org.yaml.snakeyaml.issues.issue137.SupplementaryCharactersTest) (110 ms)</li><li>org.yaml.snakeyaml.issues.issue183.NumberBeanTest.testNumberAsFloatInfinity(org.yaml.snakeyaml.issues.issue183.NumberBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.javabeans.HouseTest.testDump1(org.yaml.snakeyaml.javabeans.HouseTest) (13 ms)</li><li>org.yaml.snakeyaml.issues.issue149.GlobalDirectivesTest.testOneDocument(org.yaml.snakeyaml.issues.issue149.GlobalDirectivesTest) (3 ms)</li><li>org.yaml.snakeyaml.serialization.TransientValuesTest.testDumpTransientFieldsAndProperties(org.yaml.snakeyaml.serialization.TransientValuesTest) (4 ms)</li><li>org.yaml.snakeyaml.json.JsonTest.testNoSpace(org.yaml.snakeyaml.json.JsonTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInSetTest.testSet(org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInSetTest) (2 ms)</li><li>org.yaml.snakeyaml.recursive.Human_WithArrayOfChildrenTest.testParseChildrenArrayWithoutRootTag(org.yaml.snakeyaml.recursive.Human_WithArrayOfChildrenTest) (6 ms)</li><li>org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInListTest.testList(org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInListTest) (2 ms)</li><li>org.yaml.snakeyaml.javabeans.LongTest.testLongRepresenter(org.yaml.snakeyaml.javabeans.LongTest) (2 ms)</li><li>org.yaml.snakeyaml.array.PrimitiveArrayTest.testCycle(org.yaml.snakeyaml.array.PrimitiveArrayTest) (95 ms)</li><li>org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest.testDumpEscapedTag(org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest) (4 ms)</li><li>org.yaml.snakeyaml.resolver.ResolverTest.testAddImplicitResolver2(org.yaml.snakeyaml.resolver.ResolverTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue61.GenericMapBeanTest.testGenericMap(org.yaml.snakeyaml.issues.issue61.GenericMapBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue10.BasicDumpTest.testTag3(org.yaml.snakeyaml.issues.issue10.BasicDumpTest) (4 ms)</li><li>org.yaml.snakeyaml.types.NullTagTest.testNullTag(org.yaml.snakeyaml.types.NullTagTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest.testWithGlobalTag(org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest) (9 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testScalarContructorException(org.yaml.snakeyaml.constructor.BeanConstructorTest) (3 ms)</li><li>org.yaml.snakeyaml.types.FloatTagTest.testFloatOut(org.yaml.snakeyaml.types.FloatTagTest) (0 ms)</li><li>org.yaml.snakeyaml.issues.issue10.BasicDumpTest.testTag2(org.yaml.snakeyaml.issues.issue10.BasicDumpTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue103.MergingTest.testMergeWithFakeMap(org.yaml.snakeyaml.issues.issue103.MergingTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testAB_Set(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue124.DumpTest.testDumperFlowStyle(org.yaml.snakeyaml.issues.issue124.DumpTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest.testMergeAndDeviate(org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest) (14 ms)</li><li>org.yaml.snakeyaml.issues.issue377.BillionLaughsAttackTest.billionLaughsAttackWithRestrictedAliases(org.yaml.snakeyaml.issues.issue377.BillionLaughsAttackTest) (2 ms)</li><li>org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest.testEmptyBean3(org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest) (1 ms)</li><li>org.yaml.snakeyaml.types.TimestampTagTest.testTimestampReadWrite(org.yaml.snakeyaml.types.TimestampTagTest) (1 ms)</li><li>org.yaml.snakeyaml.Chapter2_3Test.testExample_2_17_hexesc(org.yaml.snakeyaml.Chapter2_3Test) (10 ms)</li><li>org.yaml.snakeyaml.issues.issue133.StackOverflowTest.testDump(org.yaml.snakeyaml.issues.issue133.StackOverflowTest) (4 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testPrimitivesConstructor(org.yaml.snakeyaml.constructor.BeanConstructorTest) (43 ms)</li><li>org.yaml.snakeyaml.array.PrimitiveArrayTest.testValidConstructor(org.yaml.snakeyaml.array.PrimitiveArrayTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue112.ParameterisedTypeLoadingTestCase.testParameterisedTypeLoading(org.yaml.snakeyaml.issues.issue112.ParameterisedTypeLoadingTestCase) (57 ms)</li><li>org.yaml.snakeyaml.types.TimestampTagTest.testTimestampDoubleDigitsForOffset(org.yaml.snakeyaml.types.TimestampTagTest) (0 ms)</li><li>org.yaml.snakeyaml.Chapter2_3Test.testExample_2_16(org.yaml.snakeyaml.Chapter2_3Test) (8 ms)</li><li>org.yaml.snakeyaml.issues.issue61.GenericListBeanTest.testGenericBean(org.yaml.snakeyaml.issues.issue61.GenericListBeanTest) (7 ms)</li><li>org.yaml.snakeyaml.YamlComposeTest.testComposeFromReader(org.yaml.snakeyaml.YamlComposeTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue100.MergeMapsTest.testExplicitMergeTag(org.yaml.snakeyaml.issues.issue100.MergeMapsTest) (4 ms)</li><li>org.yaml.snakeyaml.constructor.ClassTagsTest.testLoadClassTag(org.yaml.snakeyaml.constructor.ClassTagsTest) (8 ms)</li><li>org.yaml.snakeyaml.issues.issue176.SingleQuoteTest.testNoSingleQuoteForBlockStyle(org.yaml.snakeyaml.issues.issue176.SingleQuoteTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue115.ParameterizedJavaBeanTest.testAsJavaBeanProperty(org.yaml.snakeyaml.issues.issue115.ParameterizedJavaBeanTest) (5 ms)</li><li>org.yaml.snakeyaml.types.TimestampTagTest.testTimestampNegativeTimezoneOffset(org.yaml.snakeyaml.types.TimestampTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testABwithJavaBeanHelpers(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue183.NumberBeanTest.testNumberAsNegativeDoubleInfinity(org.yaml.snakeyaml.issues.issue183.NumberBeanTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue29.FlexibleScalarStyleTest.testDefaultScalarStyle(org.yaml.snakeyaml.issues.issue29.FlexibleScalarStyleTest) (2 ms)</li><li>org.yaml.snakeyaml.types.FloatTagTest.testFloatShorthand(org.yaml.snakeyaml.types.FloatTagTest) (0 ms)</li><li>org.yaml.snakeyaml.types.TimestampTagTest.testTimestampEpoch(org.yaml.snakeyaml.types.TimestampTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue322_382.PropertyWithoutGetterTest.testStaticFooWithGetter(org.yaml.snakeyaml.issues.issue322_382.PropertyWithoutGetterTest) (3 ms)</li><li>org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorExampleTest.test9(org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorExampleTest) (4 ms)</li><li>org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest.testTypeSafeMap(org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest) (10 ms)</li><li>org.yaml.snakeyaml.Chapter2_3Test.testExample_2_17_quoted(org.yaml.snakeyaml.Chapter2_3Test) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testABPropertyWithCustomTag(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (6 ms)</li><li>org.yaml.snakeyaml.constructor.ArrayTagsTest.testFlowBlock(org.yaml.snakeyaml.constructor.ArrayTagsTest) (4 ms)</li><li>org.yaml.snakeyaml.javabeans.HouseTest.testDump2(org.yaml.snakeyaml.javabeans.HouseTest) (5 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testPoint2(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (29 ms)</li><li>org.yaml.snakeyaml.reader.IoReaderTest.testCheckPrintable(org.yaml.snakeyaml.reader.IoReaderTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue171.GenericExtendsObjectTest.testNoCompilationError(org.yaml.snakeyaml.issues.issue171.GenericExtendsObjectTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue94.ChangeRuntimeClassTest.testWithGlobalTag(org.yaml.snakeyaml.issues.issue94.ChangeRuntimeClassTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest.testTypeSafeMap2(org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest) (13 ms)</li><li>org.yaml.snakeyaml.issues.issue58.NullValueDumperTest.testListElement(org.yaml.snakeyaml.issues.issue58.NullValueDumperTest) (3 ms)</li><li>org.yaml.snakeyaml.composer.ComposerImplTest.testGetNode(org.yaml.snakeyaml.composer.ComposerImplTest) (2 ms)</li><li>org.yaml.snakeyaml.serializer.AnchorGeneratorTest.testCustomGenerator(org.yaml.snakeyaml.serializer.AnchorGeneratorTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue409.DumpEnumAsJavabeanPropertyTest.testDumpExtendedEnum(org.yaml.snakeyaml.issues.issue409.DumpEnumAsJavabeanPropertyTest) (4 ms)</li><li>org.yaml.snakeyaml.immutable.MoreImmutablesTest.testRectangle(org.yaml.snakeyaml.immutable.MoreImmutablesTest) (3 ms)</li><li>org.yaml.snakeyaml.types.TimestampTagTest.testSqlDate(org.yaml.snakeyaml.types.TimestampTagTest) (1 ms)</li><li>org.yaml.snakeyaml.types.NullTagTest.testNullShorthand(org.yaml.snakeyaml.types.NullTagTest) (1 ms)</li><li>org.yaml.snakeyaml.javabeans.StringArrayTest.testStrings(org.yaml.snakeyaml.javabeans.StringArrayTest) (4 ms)</li><li>org.yaml.snakeyaml.types.NullTagTest.testNullOutAsEmpty2(org.yaml.snakeyaml.types.NullTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue64.ParameterizedTypeTest.testRepresenter(org.yaml.snakeyaml.issues.issue64.ParameterizedTypeTest) (13 ms)</li><li>org.yaml.snakeyaml.recursive.Human_WithArrayOfChildrenTest.testDumpChildrenArrayWithoutRootTag(org.yaml.snakeyaml.recursive.Human_WithArrayOfChildrenTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue377.BillionLaughsAttackTest.billionLaughsAttackExpanded(org.yaml.snakeyaml.issues.issue377.BillionLaughsAttackTest) (6839 ms)</li><li>org.yaml.snakeyaml.constructor.BigDecimalBeanConstructorTest.testRepresentor(org.yaml.snakeyaml.constructor.BigDecimalBeanConstructorTest) (2 ms)</li><li>org.yaml.snakeyaml.YamlComposeTest.testComposeAllFromReader(org.yaml.snakeyaml.YamlComposeTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue124.DumpTest.testDumperOptionsSideEffect(org.yaml.snakeyaml.issues.issue124.DumpTest) (2 ms)</li><li>org.yaml.snakeyaml.EnumTest.testLoadEnumMap(org.yaml.snakeyaml.EnumTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.BigDecimalBeanConstructorTest.testConstructor(org.yaml.snakeyaml.constructor.BigDecimalBeanConstructorTest) (5 ms)</li><li>org.yaml.snakeyaml.types.ValueTagTest.testValue(org.yaml.snakeyaml.types.ValueTagTest) (3 ms)</li><li>org.yaml.snakeyaml.Chapter2_1Test.testExample_2_1(org.yaml.snakeyaml.Chapter2_1Test) (9 ms)</li><li>org.yaml.snakeyaml.representer.RepresentIterableTest.testIterator(org.yaml.snakeyaml.representer.RepresentIterableTest) (31 ms)</li><li>org.yaml.snakeyaml.issues.issue154.MissingPropertyTest.testSkipMissingProperties(org.yaml.snakeyaml.issues.issue154.MissingPropertyTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue49.CalendarTest.testDumpDstIgnored(org.yaml.snakeyaml.issues.issue49.CalendarTest) (5 ms)</li><li>org.yaml.snakeyaml.types.MapTagTest.testMap(org.yaml.snakeyaml.types.MapTagTest) (5 ms)</li><li>org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest.testEmptyBean2(org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue74.ArrayBeanTest.testArrayProperty(org.yaml.snakeyaml.issues.issue74.ArrayBeanTest) (15 ms)</li><li>org.yaml.snakeyaml.emitter.EmitterTest.testSplitLineExpectFlowMappingKey(org.yaml.snakeyaml.emitter.EmitterTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue49.CalendarTest.testMoreThen10hours(org.yaml.snakeyaml.issues.issue49.CalendarTest) (2 ms)</li><li>org.yaml.snakeyaml.BinaryJavaBeanTest.testBeanTest(org.yaml.snakeyaml.BinaryJavaBeanTest) (99 ms)</li><li>org.yaml.snakeyaml.EnumBeanGenTest.testLoadNoTags(org.yaml.snakeyaml.EnumBeanGenTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue149.GlobalDirectivesTest.testDirectives2(org.yaml.snakeyaml.issues.issue149.GlobalDirectivesTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue72.CollectionTest.testCollectionSet(org.yaml.snakeyaml.issues.issue72.CollectionTest) (15 ms)</li><li>org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest.testMergeBeanProperty(org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest) (6 ms)</li><li>org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorErrorsTest.test4(org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorErrorsTest) (6 ms)</li><li>org.yaml.snakeyaml.generics.GenericArrayTypeTest.testJavaBean(org.yaml.snakeyaml.generics.GenericArrayTypeTest) (6 ms)</li><li>org.yaml.snakeyaml.issues.issue60.SkipBeanTest.testSkipEmptyCollections(org.yaml.snakeyaml.issues.issue60.SkipBeanTest) (3 ms)</li><li>org.yaml.snakeyaml.types.SetTagTest.testSetNull(org.yaml.snakeyaml.types.SetTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue94.ChangeRuntimeClassTest.testNoTag(org.yaml.snakeyaml.issues.issue94.ChangeRuntimeClassTest) (5 ms)</li><li>org.yaml.snakeyaml.types.BoolTagTest.testBool(org.yaml.snakeyaml.types.BoolTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testEmptyBean2(org.yaml.snakeyaml.issues.issue9.NopropTest) (6 ms)</li><li>org.yaml.snakeyaml.types.BinaryTagTest.testBinary(org.yaml.snakeyaml.types.BinaryTagTest) (1 ms)</li><li>org.yaml.snakeyaml.ruby.RubyTest.testEmitWithTags2WithoutTagForParentJavabean(org.yaml.snakeyaml.ruby.RubyTest) (9 ms)</li><li>org.yaml.snakeyaml.types.TimestampTagTest.testTimestampOutMap(org.yaml.snakeyaml.types.TimestampTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest.testMergeAndDeviateOverride(org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue11.YamlMapTest.testYamlMap(org.yaml.snakeyaml.issues.issue11.YamlMapTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest.testLoad(org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest) (4 ms)</li><li>org.yaml.snakeyaml.javabeans.HouseTest.testDump3(org.yaml.snakeyaml.javabeans.HouseTest) (14 ms)</li><li>org.yaml.snakeyaml.issues.issue144.FloatPropertyTest.testCompact(org.yaml.snakeyaml.issues.issue144.FloatPropertyTest) (3 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testShape(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (6 ms)</li><li>org.yaml.snakeyaml.types.TimestampTagTest.testTimestampEpochWithOffset(org.yaml.snakeyaml.types.TimestampTagTest) (1 ms)</li><li>org.yaml.snakeyaml.resolver.ImplicitResolverTest.testMain(org.yaml.snakeyaml.resolver.ImplicitResolverTest) (114 ms)</li><li>org.yaml.snakeyaml.issues.issue49.CalendarTest.testLoadBean(org.yaml.snakeyaml.issues.issue49.CalendarTest) (3 ms)</li><li>org.yaml.snakeyaml.EnumTest.testLoadWrongEnum(org.yaml.snakeyaml.EnumTest) (3 ms)</li><li>org.yaml.snakeyaml.generics.BirdTest.testHome(org.yaml.snakeyaml.generics.BirdTest) (7 ms)</li><li>org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInListTest.testList2(org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInListTest) (4 ms)</li><li>org.yaml.snakeyaml.json.JsonTest.testSpaceAfterColon(org.yaml.snakeyaml.json.JsonTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue437.BinaryRoundTripTest.testRoundTripBinary(org.yaml.snakeyaml.issues.issue437.BinaryRoundTripTest) (2 ms)</li><li>org.yaml.snakeyaml.types.SeqTagTest.testArray(org.yaml.snakeyaml.types.SeqTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue311.BooleanEnumTest.loadEnum(org.yaml.snakeyaml.issues.issue311.BooleanEnumTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest.testMergeMapToJavaBean(org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.emitter.EmitterTest.testWriteLiteral(org.yaml.snakeyaml.emitter.EmitterTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue173.RecursiveAnchorTest.testWithoutCustomStyle(org.yaml.snakeyaml.issues.issue173.RecursiveAnchorTest) (1 ms)</li><li>org.yaml.snakeyaml.types.TimestampTagTest.testTimestampGMTNoOffset(org.yaml.snakeyaml.types.TimestampTagTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue124.DumpTest.testDumperNullStyle2(org.yaml.snakeyaml.issues.issue124.DumpTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.CustomClassLoaderConstructorTest.testGetClassForNameBean(org.yaml.snakeyaml.constructor.CustomClassLoaderConstructorTest) (4 ms)</li><li>org.yaml.snakeyaml.Chapter2_3Test.testExample_2_17_control(org.yaml.snakeyaml.Chapter2_3Test) (6 ms)</li><li>org.yaml.snakeyaml.representer.SafeRepresenterTest.testStyle2(org.yaml.snakeyaml.representer.SafeRepresenterTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue73.DumpSetAsSequenceExampleTest.testDumpBlock(org.yaml.snakeyaml.issues.issue73.DumpSetAsSequenceExampleTest) (33 ms)</li><li>org.yaml.snakeyaml.issues.issue99.YamlBase64Test.testYamlBase64LoadingLiteral(org.yaml.snakeyaml.issues.issue99.YamlBase64Test) (7 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testChildren(org.yaml.snakeyaml.recursive.HumanTest) (28 ms)</li><li>org.yaml.snakeyaml.Chapter2_5Test.testExample_2_28(org.yaml.snakeyaml.Chapter2_5Test) (59 ms)</li><li>org.yaml.snakeyaml.representer.SafeRepresenterTest.testEmptyArray(org.yaml.snakeyaml.representer.SafeRepresenterTest) (1 ms)</li><li>org.yaml.snakeyaml.types.NullTagTest.testBoolOutAsEmpty3(org.yaml.snakeyaml.types.NullTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest.testLoad(org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest) (4 ms)</li><li>org.yaml.snakeyaml.recursive.Human_WithArrayOfChildrenTest.testChildrenArray(org.yaml.snakeyaml.recursive.Human_WithArrayOfChildrenTest) (12 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testPrivateMethod(org.yaml.snakeyaml.constructor.BeanConstructorTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue124.DumpTest.testDumperAutoStyle(org.yaml.snakeyaml.issues.issue124.DumpTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testEmptyBean(org.yaml.snakeyaml.issues.issue9.NopropTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testABProperty(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (9 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testShapeNoTags(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (38 ms)</li><li>org.yaml.snakeyaml.issues.issue124.DumpTest.testDumperNullTag(org.yaml.snakeyaml.issues.issue124.DumpTest) (1 ms)</li><li>org.yaml.snakeyaml.immutable.primitives.ImmutablePrimitivesTest.testPrimitivesLong(org.yaml.snakeyaml.immutable.primitives.ImmutablePrimitivesTest) (1 ms)</li><li>org.yaml.snakeyaml.Chapter2_2Test.testExample_2_12(org.yaml.snakeyaml.Chapter2_2Test) (9 ms)</li><li>org.yaml.snakeyaml.Chapter2_4Test.testExample_2_23_picture(org.yaml.snakeyaml.Chapter2_4Test) (36 ms)</li><li>org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest.testArrayAsListValueWithTypeDespriptor(org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.ImplicitTagsTest.testDefaultRepresenter(org.yaml.snakeyaml.constructor.ImplicitTagsTest) (8 ms)</li><li>org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorExampleTest.test6(org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorExampleTest) (3 ms)</li><li>org.yaml.snakeyaml.types.PairsTagTest.testPairs(org.yaml.snakeyaml.types.PairsTagTest) (4 ms)</li><li>org.yaml.snakeyaml.types.TimestampTagTest.testTimestampTag(org.yaml.snakeyaml.types.TimestampTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue311.BooleanEnumTest.loadEnumUndefined(org.yaml.snakeyaml.issues.issue311.BooleanEnumTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue310.PropertyWithPrivateCostructorTest.loadFromString(org.yaml.snakeyaml.issues.issue310.PropertyWithPrivateCostructorTest) (1 ms)</li><li>org.yaml.snakeyaml.ruby.RubyTest.testEmitNoTags(org.yaml.snakeyaml.ruby.RubyTest) (11 ms)</li><li>org.yaml.snakeyaml.issues.issue60.CustomOrderTest.testReversedOrder(org.yaml.snakeyaml.issues.issue60.CustomOrderTest) (25 ms)</li><li>org.yaml.snakeyaml.issues.issue112.ParameterisedTypeLoadingTestCase.testJavaBeanLoader(org.yaml.snakeyaml.issues.issue112.ParameterisedTypeLoadingTestCase) (27 ms)</li><li>org.yaml.snakeyaml.DumperOptionsTest.testExplicitStart(org.yaml.snakeyaml.DumperOptionsTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue150.YamlLoadAsIssueTest.ignoreImplicitTag(org.yaml.snakeyaml.issues.issue150.YamlLoadAsIssueTest) (5 ms)</li><li>org.yaml.snakeyaml.resolver.ResolverTest.testAddImplicitResolver(org.yaml.snakeyaml.resolver.ResolverTest) (3 ms)</li><li>org.yaml.snakeyaml.representer.RepresenterTest.testRepresenterNoConstructorAvailable(org.yaml.snakeyaml.representer.RepresenterTest) (3 ms)</li><li>org.yaml.snakeyaml.emitter.EmitterTest.testWriteFolded(org.yaml.snakeyaml.emitter.EmitterTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue431.FlexSimleKeyTest.testLongKey(org.yaml.snakeyaml.issues.issue431.FlexSimleKeyTest) (2 ms)</li><li>org.yaml.snakeyaml.EnumTest.testDumpEnumArray(org.yaml.snakeyaml.EnumTest) (2 ms)</li><li>org.yaml.snakeyaml.types.TimestampTagTest.testTimestamp(org.yaml.snakeyaml.types.TimestampTagTest) (5 ms)</li><li>org.yaml.snakeyaml.immutable.MoreImmutablesTest.testMatteBorder(org.yaml.snakeyaml.immutable.MoreImmutablesTest) (6 ms)</li><li>org.yaml.snakeyaml.array.PrimitiveArrayTest.testTruncation(org.yaml.snakeyaml.array.PrimitiveArrayTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue395.ReportPositionForDuplicateKeyTest.deleteDuplicatKeysInCorrectOrder(org.yaml.snakeyaml.issues.issue395.ReportPositionForDuplicateKeyTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.IncompleteBeanConstructorTest.testConstructor(org.yaml.snakeyaml.constructor.IncompleteBeanConstructorTest) (4 ms)</li><li>org.yaml.snakeyaml.types.IntTagTest.testIntOut(org.yaml.snakeyaml.types.IntTagTest) (1 ms)</li><li>org.yaml.snakeyaml.DumperOptionsTest.testLineBreakForPlatform(org.yaml.snakeyaml.DumperOptionsTest) (17 ms)</li><li>org.yaml.snakeyaml.constructor.BigDecimalBeanConstructorTest.testConstructorAtomic(org.yaml.snakeyaml.constructor.BigDecimalBeanConstructorTest) (3 ms)</li><li>org.yaml.snakeyaml.DumperOptionsTest.testVersion(org.yaml.snakeyaml.DumperOptionsTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue29.FlexibleScalarStyleTest.testCustomScalarStyleNoSplitLines(org.yaml.snakeyaml.issues.issue29.FlexibleScalarStyleTest) (3 ms)</li><li>org.yaml.snakeyaml.types.FloatTagTest.testFloatTag(org.yaml.snakeyaml.types.FloatTagTest) (1 ms)</li><li>org.yaml.snakeyaml.partialconstruct.FragmentComposerTest.testFragment(org.yaml.snakeyaml.partialconstruct.FragmentComposerTest) (3 ms)</li><li>org.yaml.snakeyaml.types.StrTagTest.testStringBoolOut(org.yaml.snakeyaml.types.StrTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue97.YamlSortedSetTest.testYaml(org.yaml.snakeyaml.issues.issue97.YamlSortedSetTest) (2 ms)</li><li>org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorErrorsTest.test9(org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorErrorsTest) (10 ms)</li><li>org.yaml.snakeyaml.Chapter2_2Test.testExample_2_10(org.yaml.snakeyaml.Chapter2_2Test) (14 ms)</li><li>org.yaml.snakeyaml.types.IntTagTest.testIntShorthand(org.yaml.snakeyaml.types.IntTagTest) (1 ms)</li><li>org.yaml.snakeyaml.representer.FilterPropertyToDumpTest.testFilterPropertyInYaml(org.yaml.snakeyaml.representer.FilterPropertyToDumpTest) (2 ms)</li><li>org.yaml.snakeyaml.emitter.EmitterMultiLineTest.testWriteMultiLineLiteralWithStripChomping(org.yaml.snakeyaml.emitter.EmitterMultiLineTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue377.BillionLaughsAttackTest.doNotRestrictScalarAliases(org.yaml.snakeyaml.issues.issue377.BillionLaughsAttackTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.ClassTagsTest.testDumpClassTag(org.yaml.snakeyaml.constructor.ClassTagsTest) (39 ms)</li><li>org.yaml.snakeyaml.issues.issue358.UnexpectedIndentTest.testIndicatorIndentMuchSmaller(org.yaml.snakeyaml.issues.issue358.UnexpectedIndentTest) (3 ms)</li><li>org.yaml.snakeyaml.json.JsonTest.testConstructBoolean(org.yaml.snakeyaml.json.JsonTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInSetTest.testSetNoSpaces(org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInSetTest) (1 ms)</li><li>org.yaml.snakeyaml.emitter.EmitterTest.testWritePlainPretty(org.yaml.snakeyaml.emitter.EmitterTest) (1 ms)</li><li>org.yaml.snakeyaml.EnumTest.testDumpEnumMap(org.yaml.snakeyaml.EnumTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.ConstructorMappingTest.testGetArrayList(org.yaml.snakeyaml.constructor.ConstructorMappingTest) (1 ms)</li><li>org.yaml.snakeyaml.Chapter2_3Test.testExample_2_17_tie_fighter(org.yaml.snakeyaml.Chapter2_3Test) (5 ms)</li><li>org.yaml.snakeyaml.nodes.TagsTest.testLong(org.yaml.snakeyaml.nodes.TagsTest) (3 ms)</li><li>org.yaml.snakeyaml.EnumBeanGenTest.testDumpEnumBean(org.yaml.snakeyaml.EnumBeanGenTest) (9 ms)</li><li>org.yaml.snakeyaml.issues.issue183.NumberBeanTest.testNumberAsFloatNaN(org.yaml.snakeyaml.issues.issue183.NumberBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.ClassTagsTest.testLoadUnknounClassTag(org.yaml.snakeyaml.constructor.ClassTagsTest) (4 ms)</li><li>org.yaml.snakeyaml.types.SetTagTest.testSet(org.yaml.snakeyaml.types.SetTagTest) (5 ms)</li><li>org.yaml.snakeyaml.ruby.RubyTest.testEmitWithTags(org.yaml.snakeyaml.ruby.RubyTest) (5 ms)</li><li>org.yaml.snakeyaml.representer.RepresentFieldTest.testWrongNotPublicField(org.yaml.snakeyaml.representer.RepresentFieldTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue335.JavaLangObjectTest.testLoadObjectAsMapping(org.yaml.snakeyaml.issues.issue335.JavaLangObjectTest) (1 ms)</li><li>org.yaml.snakeyaml.types.NullTagTest.testSequenceNull(org.yaml.snakeyaml.types.NullTagTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.ConstructorSequenceTest.testDumpListSameIntegers(org.yaml.snakeyaml.constructor.ConstructorSequenceTest) (1 ms)</li><li>org.yaml.snakeyaml.Chapter2_3Test.testExample_2_17_unicode(org.yaml.snakeyaml.Chapter2_3Test) (5 ms)</li><li>org.yaml.snakeyaml.json.JsonTest.testConstructNull(org.yaml.snakeyaml.json.JsonTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest.errorOnDuplicateKeys(org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest) (2 ms)</li><li>org.yaml.snakeyaml.types.BinaryTagTest.testBinaryTag(org.yaml.snakeyaml.types.BinaryTagTest) (1 ms)</li><li>org.yaml.snakeyaml.types.BoolTagTest.testBoolOutAsEmpty3(org.yaml.snakeyaml.types.BoolTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInMapTest.test2(org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInMapTest) (1 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testChildrenMapAsRoot(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (7 ms)</li><li>org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest.testEmptyBean6(org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest) (1 ms)</li><li>org.yaml.snakeyaml.types.StrTagTest.testStringFloatOut(org.yaml.snakeyaml.types.StrTagTest) (0 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testNoChildren(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (6 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testChildrenListRoot(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (29 ms)</li><li>org.yaml.snakeyaml.issues.issue55.YamlFieldAccessCollectionTest.testYaml(org.yaml.snakeyaml.issues.issue55.YamlFieldAccessCollectionTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testAB_asMapValue(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (5 ms)</li><li>org.yaml.snakeyaml.constructor.ArrayTagsTest.testLoadClassNoRoot(org.yaml.snakeyaml.constructor.ArrayTagsTest) (4 ms)</li><li>org.yaml.snakeyaml.constructor.ConstructorTest.testGetBeanAssumeClass(org.yaml.snakeyaml.constructor.ConstructorTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue322_382.PropertyWithoutGetterTest.testStaticFooWithoutGetter(org.yaml.snakeyaml.issues.issue322_382.PropertyWithoutGetterTest) (2 ms)</li><li>org.yaml.snakeyaml.representer.FilterPropertyToDumpTest.testFilterPropertyWithTypeDesciptionExcludes(org.yaml.snakeyaml.representer.FilterPropertyToDumpTest) (3 ms)</li><li>org.yaml.snakeyaml.JavaBeanTimeStampTest.testLoadDefaultJavaSqlTimestampNoGlobalTag(org.yaml.snakeyaml.JavaBeanTimeStampTest) (3 ms)</li><li>org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest.testTypeSafeList(org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest) (3 ms)</li><li>org.yaml.snakeyaml.EnumBeanGenTest.testLoadNoTag4GenEnumProperty(org.yaml.snakeyaml.EnumBeanGenTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue183.NumberBeanTest.testNumberAsInteger(org.yaml.snakeyaml.issues.issue183.NumberBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest.testMergeWithTags(org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest) (4 ms)</li><li>org.yaml.snakeyaml.constructor.SafeConstructorTest.testSafeConstructJavaBean(org.yaml.snakeyaml.constructor.SafeConstructorTest) (2 ms)</li><li>org.yaml.snakeyaml.Chapter2_4Test.testExample_2_23_non_date(org.yaml.snakeyaml.Chapter2_4Test) (5 ms)</li><li>org.yaml.snakeyaml.DumperOptionsTest.testDefaultFlowStyleNested(org.yaml.snakeyaml.DumperOptionsTest) (4 ms)</li><li>org.yaml.snakeyaml.types.BoolTagTest.testBoolCanonical(org.yaml.snakeyaml.types.BoolTagTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue50.SnakeyamlTest.testIntrospector(org.yaml.snakeyaml.issues.issue50.SnakeyamlTest) (8 ms)</li><li>org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest.testArrayAsMapValue(org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest) (2 ms)</li><li>org.yaml.snakeyaml.types.FloatTagTest.testFloat(org.yaml.snakeyaml.types.FloatTagTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.ConstructorTest.testGetConstructorBean(org.yaml.snakeyaml.constructor.ConstructorTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue49.CalendarTest.testNepal(org.yaml.snakeyaml.issues.issue49.CalendarTest) (3 ms)</li><li>org.yaml.snakeyaml.constructor.ConstructorSequenceTest.testGetArrayList(org.yaml.snakeyaml.constructor.ConstructorSequenceTest) (13 ms)</li><li>org.yaml.snakeyaml.issues.issue332.DataTest.testLoad(org.yaml.snakeyaml.issues.issue332.DataTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.ImplicitTagsTest.testNoRootTag(org.yaml.snakeyaml.constructor.ImplicitTagsTest) (7 ms)</li><li>org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest.errorOnDuplicateKeysInJavaBeanProperty(org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue73.ArrayListTest.testListImplementation(org.yaml.snakeyaml.issues.issue73.ArrayListTest) (4 ms)</li><li>org.yaml.snakeyaml.types.OmapTagTest.testOmap(org.yaml.snakeyaml.types.OmapTagTest) (5 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testChildrenPretty(org.yaml.snakeyaml.recursive.HumanTest) (28 ms)</li><li>org.yaml.snakeyaml.JavaBeanWithNullValuesTest.testNullStringAndBoolean(org.yaml.snakeyaml.JavaBeanWithNullValuesTest) (7 ms)</li><li>org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorExampleTest.test7(org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorExampleTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest.testMergeBeanToMap(org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue124.DumpTest.testDumperNullStyle(org.yaml.snakeyaml.issues.issue124.DumpTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue139.MergeValueTest.testNotUniqueSimple(org.yaml.snakeyaml.issues.issue139.MergeValueTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue431.FlexSimleKeyTest.testForceLongKeyToBeImplicit(org.yaml.snakeyaml.issues.issue431.FlexSimleKeyTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue55.FieldListTest.testFailureWithoutFieldAccess(org.yaml.snakeyaml.issues.issue55.FieldListTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue139.MergeValueTest.testMerge(org.yaml.snakeyaml.issues.issue139.MergeValueTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest.testArrayAsListValue(org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest) (3 ms)</li><li>org.yaml.snakeyaml.representer.SafeRepresenterTest.testNumber(org.yaml.snakeyaml.representer.SafeRepresenterTest) (2 ms)</li><li>org.yaml.snakeyaml.EnumTest.testDumpEnumBean(org.yaml.snakeyaml.EnumTest) (4 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testPoint(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (2 ms)</li><li>org.yaml.snakeyaml.Chapter2_1Test.testExample_2_3(org.yaml.snakeyaml.Chapter2_1Test) (22 ms)</li><li>org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest.testLoadRootSet6(org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest) (3 ms)</li><li>org.yaml.snakeyaml.constructor.ArrayTagsTest.testDefaultRepresenter(org.yaml.snakeyaml.constructor.ArrayTagsTest) (6 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testPoint3d(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue73.RecursiveSetTest.testLoadRecursiveTest(org.yaml.snakeyaml.issues.issue73.RecursiveSetTest) (25 ms)</li><li>org.yaml.snakeyaml.issues.issue311.BooleanEnumTest.dumpEnum(org.yaml.snakeyaml.issues.issue311.BooleanEnumTest) (2 ms)</li><li>org.yaml.snakeyaml.javabeans.LongTest.testLongFail(org.yaml.snakeyaml.javabeans.LongTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testInvalidKey(org.yaml.snakeyaml.constructor.BeanConstructorTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue467.MergeTest.testMergeAsScalar(org.yaml.snakeyaml.issues.issue467.MergeTest) (2 ms)</li><li>org.yaml.snakeyaml.emitter.EmitterMultiLineTest.testWriteMultiLineLiteralWithClipChomping(org.yaml.snakeyaml.emitter.EmitterMultiLineTest) (1 ms)</li><li>org.yaml.snakeyaml.json.JsonTest.testManyValues(org.yaml.snakeyaml.json.JsonTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.ClassTagsTest.testDefaultRepresenter(org.yaml.snakeyaml.constructor.ClassTagsTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue139.MergeValueTest.testMergeUnlessAlreadyExists(org.yaml.snakeyaml.issues.issue139.MergeValueTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.ArrayTagsTest.testLoadClassTag(org.yaml.snakeyaml.constructor.ArrayTagsTest) (6 ms)</li><li>org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest.noDuplicatesConfigMutablePostChange(org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest) (2 ms)</li><li>org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorExampleTest.test5(org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorExampleTest) (3 ms)</li><li>org.yaml.snakeyaml.emitter.template.VelocityTest.testTemplate1(org.yaml.snakeyaml.emitter.template.VelocityTest) (303 ms)</li><li>org.yaml.snakeyaml.generics.GenericArrayTypeTest.testClasses(org.yaml.snakeyaml.generics.GenericArrayTypeTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue10.BasicDumpTest.testTag(org.yaml.snakeyaml.issues.issue10.BasicDumpTest) (10 ms)</li><li>org.yaml.snakeyaml.DumperOptionsTest.testIndent(org.yaml.snakeyaml.DumperOptionsTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue73.RecursiveSetTest.testLoadException(org.yaml.snakeyaml.issues.issue73.RecursiveSetTest) (3 ms)</li><li>org.yaml.snakeyaml.javabeans.StringArrayTest.testStringsPretty(org.yaml.snakeyaml.javabeans.StringArrayTest) (2 ms)</li><li>org.yaml.snakeyaml.emitter.EmitterMultiLineTest.testWriteMultiLineList(org.yaml.snakeyaml.emitter.EmitterMultiLineTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue351.MergedOrderTest.mergedLinkedMapOrder(org.yaml.snakeyaml.issues.issue351.MergedOrderTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest.testNoTags(org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest.testLoadRootSet2(org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue154.MissingPropertyTest.testPublicField(org.yaml.snakeyaml.issues.issue154.MissingPropertyTest) (1 ms)</li><li>org.yaml.snakeyaml.JavaBeanTimeStampTest.testLoadDefaultJavaSqlTimestamp(org.yaml.snakeyaml.JavaBeanTimeStampTest) (29 ms)</li><li>org.yaml.snakeyaml.EnumTest.testLoadEnumList(org.yaml.snakeyaml.EnumTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue47.ReadOnlyPropertiesTest.testBean1(org.yaml.snakeyaml.issues.issue47.ReadOnlyPropertiesTest) (4 ms)</li><li>org.yaml.snakeyaml.Chapter2_2Test.testExample_2_8(org.yaml.snakeyaml.Chapter2_2Test) (12 ms)</li><li>org.yaml.snakeyaml.issues.issue115.ParameterizedTest.testAsJavaBeanProperty(org.yaml.snakeyaml.issues.issue115.ParameterizedTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue182.InfinityFloatBeanTest.testInfinityFloatBean(org.yaml.snakeyaml.issues.issue182.InfinityFloatBeanTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue349.YamlBase64BinaryTest.testLocalBinaryTags(org.yaml.snakeyaml.issues.issue349.YamlBase64BinaryTest) (17 ms)</li><li>org.yaml.snakeyaml.issues.issue154.MissingPropertyTest.testNoSkipMissingProperties(org.yaml.snakeyaml.issues.issue154.MissingPropertyTest) (2 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testChildren(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (9 ms)</li><li>org.yaml.snakeyaml.issues.issue29.FlexibleScalarStylesInJavaBeanTest.testDifferentStyles(org.yaml.snakeyaml.issues.issue29.FlexibleScalarStylesInJavaBeanTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue163.LinearScalaTralingTest.testStripChomping(org.yaml.snakeyaml.issues.issue163.LinearScalaTralingTest) (1 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testBeanRing(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (17 ms)</li><li>org.yaml.snakeyaml.types.BoolTagTest.testBoolOut(org.yaml.snakeyaml.types.BoolTagTest) (0 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testNonBean(org.yaml.snakeyaml.issues.issue9.NopropTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue8.PrattleRepresenterTest.test(org.yaml.snakeyaml.issues.issue8.PrattleRepresenterTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue145.LineNumberInExceptionTest.testWrongParameter(org.yaml.snakeyaml.issues.issue145.LineNumberInExceptionTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue377.ReferencesTest.referencesWithRestrictedAliases(org.yaml.snakeyaml.issues.issue377.ReferencesTest) (13 ms)</li><li>org.yaml.snakeyaml.Chapter2_1Test.testExample_2_5(org.yaml.snakeyaml.Chapter2_1Test) (10 ms)</li><li>org.yaml.snakeyaml.types.StrTagTest.testStringIntOut(org.yaml.snakeyaml.types.StrTagTest) (0 ms)</li><li>org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest.testDump(org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue183.NumberBeanTest.testNumberAsNegativeFloatInfinity(org.yaml.snakeyaml.issues.issue183.NumberBeanTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue55.YamlFieldAccessCollectionTest.testYamlDefaultWithFeildAccess(org.yaml.snakeyaml.issues.issue55.YamlFieldAccessCollectionTest) (3 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testNoEmptyConstructor(org.yaml.snakeyaml.constructor.BeanConstructorTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue373.UnknownRepresenterTest.testIndicatorIndentMuchSmaller(org.yaml.snakeyaml.issues.issue373.UnknownRepresenterTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue183.NumberBeanTest.testNumberAsDoubleNaN(org.yaml.snakeyaml.issues.issue183.NumberBeanTest) (1 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testNoChildrenPretty(org.yaml.snakeyaml.recursive.HumanTest) (10 ms)</li><li>org.yaml.snakeyaml.emitter.EmitterTest.testWriteSingleQuoted(org.yaml.snakeyaml.emitter.EmitterTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue188.ErrorMessageTest.testErrorMessage(org.yaml.snakeyaml.issues.issue188.ErrorMessageTest) (1 ms)</li><li>org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest.testEmptyBean(org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testOK01(org.yaml.snakeyaml.issues.issue9.NopropTest) (5 ms)</li><li>org.yaml.snakeyaml.Chapter2_4Test.testExample_2_19(org.yaml.snakeyaml.Chapter2_4Test) (7 ms)</li><li>org.yaml.snakeyaml.issues.issue354.PunctuationInTheBeginningTest.testBacktickAndAtSign(org.yaml.snakeyaml.issues.issue354.PunctuationInTheBeginningTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue55.YamlFieldAccessCollectionTest.testYamlWithoutConfiguration(org.yaml.snakeyaml.issues.issue55.YamlFieldAccessCollectionTest) (3 ms)</li><li>org.yaml.snakeyaml.EnumTest.testDumpEnumMap2(org.yaml.snakeyaml.EnumTest) (3 ms)</li><li>org.yaml.snakeyaml.types.StrTagTest.testEmitQuoted(org.yaml.snakeyaml.types.StrTagTest) (1 ms)</li><li>org.yaml.snakeyaml.emitter.template.VelocityTest.testNoTemplate(org.yaml.snakeyaml.emitter.template.VelocityTest) (8 ms)</li><li>org.yaml.snakeyaml.types.BoolTagTest.testBoolShorthand(org.yaml.snakeyaml.types.BoolTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue310.PropertyWithPrivateCostructorTest.dumpNload(org.yaml.snakeyaml.issues.issue310.PropertyWithPrivateCostructorTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue374.NumberAsJavaBeanPropertyTest.testNumberAsDouble(org.yaml.snakeyaml.issues.issue374.NumberAsJavaBeanPropertyTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue24.LineNumberTest.test1(org.yaml.snakeyaml.issues.issue24.LineNumberTest) (11 ms)</li><li>org.yaml.snakeyaml.issues.issue306.UuidSupportTest.loadFromBean(org.yaml.snakeyaml.issues.issue306.UuidSupportTest) (2 ms)</li><li>org.yaml.snakeyaml.emitter.EmitterMultiLineTest.testWriteMultiLineQuotedInFlowContext(org.yaml.snakeyaml.emitter.EmitterMultiLineTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue426.NullDuplicateKeyTest.testDuplicateKeyIsNotAlowed(org.yaml.snakeyaml.issues.issue426.NullDuplicateKeyTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue55.JavaBeanListTest.testFailureWithoutFieldAccess(org.yaml.snakeyaml.issues.issue55.JavaBeanListTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue29.FlexibleScalarStyleTest.testCustomScalarStyle(org.yaml.snakeyaml.issues.issue29.FlexibleScalarStyleTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue114.PreserveTypeTest.testPreserveType1(org.yaml.snakeyaml.issues.issue114.PreserveTypeTest) (6 ms)</li><li>org.yaml.snakeyaml.immutable.primitives.ImmutablePrimitivesTest.testPrimitivesException(org.yaml.snakeyaml.immutable.primitives.ImmutablePrimitivesTest) (1 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testChildren2(org.yaml.snakeyaml.recursive.HumanTest) (24 ms)</li><li>org.yaml.snakeyaml.issues.issue115.ParameterizedTest.testAsStandalone(org.yaml.snakeyaml.issues.issue115.ParameterizedTest) (25 ms)</li><li>org.yaml.snakeyaml.CollectionWithBeanYamlTest.testYamlList(org.yaml.snakeyaml.CollectionWithBeanYamlTest) (5 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testStaticField(org.yaml.snakeyaml.constructor.BeanConstructorTest) (2 ms)</li><li>org.yaml.snakeyaml.Chapter2_4Test.testExample_2_25(org.yaml.snakeyaml.Chapter2_4Test) (5 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testChildren3(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (10 ms)</li><li>org.yaml.snakeyaml.types.SeqTagTest.testSeq(org.yaml.snakeyaml.types.SeqTagTest) (16 ms)</li><li>org.yaml.snakeyaml.immutable.MoreImmutablesTest.testInsets(org.yaml.snakeyaml.immutable.MoreImmutablesTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue99.YamlBase64Test.testLocalBinaryTag(org.yaml.snakeyaml.issues.issue99.YamlBase64Test) (9 ms)</li><li>org.yaml.snakeyaml.issues.issue61.GenericMapBeanTest.testGenericBean(org.yaml.snakeyaml.issues.issue61.GenericMapBeanTest) (18 ms)</li><li>org.yaml.snakeyaml.javabeans.LongTest.testLongConstructor(org.yaml.snakeyaml.javabeans.LongTest) (3 ms)</li><li>org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest.testTypeSafeList2(org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest) (6 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testChildrenSetAsRoot(org.yaml.snakeyaml.recursive.HumanTest) (11 ms)</li><li>org.yaml.snakeyaml.issues.issue124.DumpTest.testDumperDifferentTag(org.yaml.snakeyaml.issues.issue124.DumpTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testAB_asMapKey(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (6 ms)</li><li>org.yaml.snakeyaml.constructor.PrefixConstructorTest.test1(org.yaml.snakeyaml.constructor.PrefixConstructorTest) (5 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testNoChildren(org.yaml.snakeyaml.recursive.HumanTest) (30 ms)</li><li>org.yaml.snakeyaml.issues.issue38.BigNumberIdTest.testBigNumberFormat(org.yaml.snakeyaml.issues.issue38.BigNumberIdTest) (223 ms)</li><li>org.yaml.snakeyaml.representer.RepresenterTest.testRepresenterGetterWithException(org.yaml.snakeyaml.representer.RepresenterTest) (4 ms)</li><li>org.yaml.snakeyaml.emitter.EmitterTest.testWriteDoubleQuoted(org.yaml.snakeyaml.emitter.EmitterTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue56.PerlTest.testJavaBeanWithTypeDescription(org.yaml.snakeyaml.issues.issue56.PerlTest) (47 ms)</li><li>org.yaml.snakeyaml.types.NullTagTest.testNullInMap(org.yaml.snakeyaml.types.NullTagTest) (1 ms)</li><li>org.yaml.snakeyaml.lowlevel.LowLevelApiTest.testLowLevel(org.yaml.snakeyaml.lowlevel.LowLevelApiTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest.testNoMerge(org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.CustomClassLoaderConstructorTest.testGetClassForNameWithRoot(org.yaml.snakeyaml.constructor.CustomClassLoaderConstructorTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue322_382.PropertyWithoutGetterTest.testPublicFooWithPublicFields(org.yaml.snakeyaml.issues.issue322_382.PropertyWithoutGetterTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue102.BigDataLoadTest.testBigStringData(org.yaml.snakeyaml.issues.issue102.BigDataLoadTest) (2579 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testKeyNotScalar(org.yaml.snakeyaml.constructor.BeanConstructorTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue8.PrattleRepresenterTest.test2beans(org.yaml.snakeyaml.issues.issue8.PrattleRepresenterTest) (3 ms)</li><li>org.yaml.snakeyaml.json.JsonTest.testNoSpaceSingleQouted(org.yaml.snakeyaml.json.JsonTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue173.RecursiveAnchorTest.testWithBlockStyle(org.yaml.snakeyaml.issues.issue173.RecursiveAnchorTest) (1 ms)</li><li>org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorErrorsTest.test7(org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorErrorsTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest.defaultConfigurationNoErrorsWithDuplicates(org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue55.FieldListTest.testYaml(org.yaml.snakeyaml.issues.issue55.FieldListTest) (5 ms)</li><li>org.yaml.snakeyaml.JavaBeanWithNullValuesTest.testNotNull(org.yaml.snakeyaml.JavaBeanWithNullValuesTest) (10 ms)</li><li>org.yaml.snakeyaml.issues.issue61.GenericListBeanTest.testGenericList(org.yaml.snakeyaml.issues.issue61.GenericListBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.ruby.RubyTest.testParse(org.yaml.snakeyaml.ruby.RubyTest) (4 ms)</li><li>org.yaml.snakeyaml.Chapter2_2Test.testExample_2_11(org.yaml.snakeyaml.Chapter2_2Test) (20 ms)</li><li>org.yaml.snakeyaml.Chapter2_2Test.testExample_2_9(org.yaml.snakeyaml.Chapter2_2Test) (9 ms)</li><li>org.yaml.snakeyaml.emitter.EmitterTest.testSplitLineExpectFirstFlowSequenceItem(org.yaml.snakeyaml.emitter.EmitterTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest.acceptDuplicateKeysInJavaBeanProperty(org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest) (7 ms)</li><li>org.yaml.snakeyaml.immutable.primitives.ImmutablePrimitivesTest.testPrimitives(org.yaml.snakeyaml.immutable.primitives.ImmutablePrimitivesTest) (2 ms)</li><li>org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest.testEmptyBean5(org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest.testLoadRootSet(org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest) (4 ms)</li><li>org.yaml.snakeyaml.array.PrimitiveArrayTest.testInvalidConstructors(org.yaml.snakeyaml.array.PrimitiveArrayTest) (8 ms)</li><li>org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorExampleTest.test10(org.yaml.snakeyaml.extensions.compactnotation.CompactConstructorExampleTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testAB(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (18 ms)</li><li>org.yaml.snakeyaml.stress.StressEmitterTest.testPerformance(org.yaml.snakeyaml.stress.StressEmitterTest) (4130 ms)</li><li>org.yaml.snakeyaml.Chapter2_1Test.testExample_2_4(org.yaml.snakeyaml.Chapter2_1Test) (11 ms)</li><li>org.yaml.snakeyaml.representer.FilterPropertyToDumpTest.testDoNotFilterPropertyIncludeReadOnly(org.yaml.snakeyaml.representer.FilterPropertyToDumpTest) (13 ms)</li><li>org.yaml.snakeyaml.issues.issue142.DerivedMapTest.testDerivedMap(org.yaml.snakeyaml.issues.issue142.DerivedMapTest) (20 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testNoChildren2(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (16 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testChildren2(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (21 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testChildrenWithoutRootTag(org.yaml.snakeyaml.recursive.HumanTest) (17 ms)</li><li>org.yaml.snakeyaml.issues.issue205.AppleSmileTest.testEmoji(org.yaml.snakeyaml.issues.issue205.AppleSmileTest) (12 ms)</li><li>org.yaml.snakeyaml.issues.issue193.AbstractBeanTest.testErrorMessage(org.yaml.snakeyaml.issues.issue193.AbstractBeanTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.ConstructorTest.testMapOrder(org.yaml.snakeyaml.constructor.ConstructorTest) (2 ms)</li><li>org.yaml.snakeyaml.DumperOptionsTest.testWithRepresenter(org.yaml.snakeyaml.DumperOptionsTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue73.TreeSetTest.testSetImplementation(org.yaml.snakeyaml.issues.issue73.TreeSetTest) (4 ms)</li><li>org.yaml.snakeyaml.EnumTest.testDumpEnumListNoAnchor(org.yaml.snakeyaml.EnumTest) (1 ms)</li><li>org.yaml.snakeyaml.EnumBeanGenTest.testLoadEnumBeanExplicitTags(org.yaml.snakeyaml.EnumBeanGenTest) (3 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.5.1
+
+</body>
+</html>
