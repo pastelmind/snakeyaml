@@ -1,0 +1,4960 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>PercentEscaper.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/* Copyright (c) 2008 Google Inc.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.yaml.snakeyaml.external.com.google.gdata.util.common.base;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * A {@code UnicodeEscaper} that escapes some set of Java characters using the</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * URI percent encoding scheme. The set of safe characters (those which remain</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * unescaped) can be specified on construction.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#60;p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * For details on escaping URIs for use in web pages, see section 2.4 of &#60;a</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * href=&#34;http://www.ietf.org/rfc/rfc3986.txt&#34;&#62;RFC 3986&#60;/a&#62;.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#60;p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * In most cases this class should not need to be used directly. If you have no</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * special requirements for escaping your URIs, you should use either</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * {@link CharEscapers#uriEscaper()} or {@link CharEscapers#uriEscaper(boolean)}.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#60;p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * When encoding a String, the following rules apply:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#60;ul&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#60;li&#62;The alphanumeric characters &#34;a&#34; through &#34;z&#34;, &#34;A&#34; through &#34;Z&#34; and &#34;0&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * through &#34;9&#34; remain the same.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#60;li&#62;Any additionally specified safe characters remain the same.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#60;li&#62;If {@code plusForSpace} was specified, the space character &#34; &#34; is</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * converted into a plus sign &#34;+&#34;.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#60;li&#62;All other characters are converted into one or more bytes using UTF-8</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * encoding and each byte is then represented by the 3-character string &#34;%XY&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * where &#34;XY&#34; is the two-digit, uppercase, hexadecimal representation of the</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * byte value.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#60;/ul&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#60;p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * RFC 2396 specifies the set of unreserved characters as &#34;-&#34;, &#34;_&#34;, &#34;.&#34;, &#34;!&#34;,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#34;~&#34;, &#34;*&#34;, &#34;&#39;&#34;, &#34;(&#34; and &#34;)&#34;. It goes on to state:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#60;p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#60;i&#62;Unreserved characters can be escaped without changing the semantics of the</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * URI, but this should not be done unless the URI is being used in a context</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * that does not allow the unescaped character to appear.&#60;/i&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#60;p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * For performance reasons the only currently supported character encoding of</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * this class is UTF-8.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#60;p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#60;b&#62;Note&#60;/b&#62;: This escaper produces uppercase hexidecimal sequences. From &#60;a</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * href=&#34;http://www.ietf.org/rfc/rfc3986.txt&#34;&#62;RFC 3986&#60;/a&#62;:&#60;br&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#60;i&#62;&#34;URI producers and normalizers should use uppercase hexadecimal digits for</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * all percent-encodings.&#34;&#60;/i&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class PercentEscaper extends UnicodeEscaper {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A string of safe characters that mimics the behavior of</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * {@link java.net.URLEncoder}.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final String SAFECHARS_URLENCODER = &#34;-_.*&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A string of characters that do not need to be encoded when used in URI</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * path segments, as specified in RFC 3986. Note that some of these</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * characters do need to be escaped when used in other parts of the URI.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final String SAFEPATHCHARS_URLENCODER = &#34;-_.!~*&#39;()@:$&#38;,;=&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A string of characters that do not need to be encoded when used in URI</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * query strings, as specified in RFC 3986. Note that some of these</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * characters do need to be escaped when used in other parts of the URI.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final String SAFEQUERYSTRINGCHARS_URLENCODER = &#34;-_.!~*&#39;()@:$,;/?:&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // In some uri escapers spaces are escaped to &#39;+&#39;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private static final char[] URI_ESCAPED_SPACE = { &#39;+&#39; };</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private static final char[] UPPER_HEX_DIGITS = &#34;0123456789ABCDEF&#34;.toCharArray();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * If true we should convert space to the {@code +} character.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final boolean plusForSpace;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * An array of flags where for any {@code char c} if {@code safeOctets[c]}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * is true then {@code c} should remain unmodified in the output. If</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * {@code c &#62; safeOctets.length} then it should be escaped.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final boolean[] safeOctets;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Constructs a URI escaper with the specified safe characters and optional</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * handling of the space character.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param safeChars</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *            a non null string specifying additional safe characters for</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *            this escaper (the ranges 0..9, a..z and A..Z are always safe</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *            and should not be specified here)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param plusForSpace</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *            true if ASCII space should be escaped to {@code +} rather than</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *            {@code %20}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @throws IllegalArgumentException</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *             if any of the parameters were invalid</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public PercentEscaper(String safeChars, boolean plusForSpace) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Avoid any misunderstandings about the behavior of this escaper</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_122'/>
+122
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_122'>1</a>
+<span>
+1. &#60;init&#62; : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (safeChars.matches(&#34;.*[0-9A-Za-z].*&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw new IllegalArgumentException(</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_124'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    &#34;Alphanumeric characters are always &#39;safe&#39; and should not be &#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_125'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                            + &#34;explicitly specified&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_127'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Avoid ambiguous parameters. Safe characters are never modified so if</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // space is a safe character then setting plusForSpace is meaningless.</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_129'/>
+129
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_129'>2</a>
+<span>
+1. &#60;init&#62; : negated conditional &rarr; SURVIVED<br/>
+2. &#60;init&#62; : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (plusForSpace &#38;&#38; safeChars.contains(&#34; &#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_130'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw new IllegalArgumentException(</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_131'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    &#34;plusForSpace cannot be specified when space is a &#39;safe&#39; character&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_132'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_133'/>
+133
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_133'>1</a>
+<span>
+1. &#60;init&#62; : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (safeChars.contains(&#34;%&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_134'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw new IllegalArgumentException(&#34;The &#39;%&#39; character cannot be specified as &#39;safe&#39;&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_135'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_136'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.plusForSpace = plusForSpace;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_137'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.safeOctets = createSafeOctets(safeChars);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_138'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_139'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_140'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_141'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Creates a boolean[] with entries corresponding to the character values</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_142'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * for 0-9, A-Z, a-z and those specified in safeChars set to true. The array</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_143'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * is as small as is required to hold the given character information.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_144'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_145'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static boolean[] createSafeOctets(String safeChars) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_146'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int maxChar = &#39;z&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_147'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        char[] safeCharArray = safeChars.toCharArray();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_148'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (char c : safeCharArray) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_149'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            maxChar = Math.max(c, maxChar);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_150'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_151'/>
+151
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_151'>1</a>
+<span>
+1. createSafeOctets : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        boolean[] octets = new boolean[maxChar + 1];</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_152'/>
+152
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_152'>2</a>
+<span>
+1. createSafeOctets : changed conditional boundary &rarr; SURVIVED<br/>
+2. createSafeOctets : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int c = &#39;0&#39;; c &#60;= &#39;9&#39;; c++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_153'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            octets[c] = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_154'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_155'/>
+155
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_155'>2</a>
+<span>
+1. createSafeOctets : changed conditional boundary &rarr; SURVIVED<br/>
+2. createSafeOctets : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int c = &#39;A&#39;; c &#60;= &#39;Z&#39;; c++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_156'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            octets[c] = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_157'/>
+157
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_157'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_158'/>
+158
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_158'>2</a>
+<span>
+1. createSafeOctets : changed conditional boundary &rarr; SURVIVED<br/>
+2. createSafeOctets : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int c = &#39;a&#39;; c &#60;= &#39;z&#39;; c++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_159'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            octets[c] = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_160'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_161'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (char c : safeCharArray) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_162'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            octets[c] = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_163'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_164'/>
+164
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_164'>1</a>
+<span>
+1. createSafeOctets : replaced return value with null for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::createSafeOctets &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return octets;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_165'/>
+165
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_165'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_166'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_167'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_168'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Overridden for performance. For unescaped strings this improved the</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_169'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * performance of the uri escaper from ~760ns to ~400ns as measured by</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_170'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * {@link CharEscapersBenchmark}.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_171'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_172'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_173'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected int nextEscapeIndex(CharSequence csq, int index, int end) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_174'/>
+174
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_174'>3</a>
+<span>
+1. nextEscapeIndex : Changed increment from 1 to -1 &rarr; TIMED_OUT<br/>
+2. nextEscapeIndex : changed conditional boundary &rarr; KILLED<br/>
+3. nextEscapeIndex : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>        for (; index &#60; end; index++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_175'/>
+175
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_175'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            char c = csq.charAt(index);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_176'/>
+176
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_176'>3</a>
+<span>
+1. nextEscapeIndex : changed conditional boundary &rarr; SURVIVED<br/>
+2. nextEscapeIndex : negated conditional &rarr; KILLED<br/>
+3. nextEscapeIndex : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (c &#62;= safeOctets.length || !safeOctets[c]) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_177'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_178'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_179'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_180'/>
+180
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_180'>1</a>
+<span>
+1. nextEscapeIndex : replaced int return with 0 for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::nextEscapeIndex &rarr; TIMED_OUT<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>        return index;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_181'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_182'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_183'/>
+183
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_183'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_184'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Overridden for performance. For unescaped strings this improved the</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_185'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * performance of the uri escaper from ~400ns to ~170ns as measured by</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_186'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * {@link CharEscapersBenchmark}.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_187'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_188'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_189'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String escape(String s) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_190'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int slen = s.length();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_191'/>
+191
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_191'>3</a>
+<span>
+1. escape : changed conditional boundary &rarr; KILLED<br/>
+2. escape : Changed increment from 1 to -1 &rarr; KILLED<br/>
+3. escape : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int index = 0; index &#60; slen; index++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_192'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            char c = s.charAt(index);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_193'/>
+193
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_193'>3</a>
+<span>
+1. escape : changed conditional boundary &rarr; SURVIVED<br/>
+2. escape : negated conditional &rarr; KILLED<br/>
+3. escape : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (c &#62;= safeOctets.length || !safeOctets[c]) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_194'/>
+194
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_194'>1</a>
+<span>
+1. escape : replaced return value with &#34;&#34; for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::escape &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return escapeSlow(s, index);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_195'/>
+195
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_195'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_196'/>
+196
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_196'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_197'/>
+197
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_197'>1</a>
+<span>
+1. escape : replaced return value with &#34;&#34; for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::escape &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return s;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_198'/>
+198
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_198'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_199'/>
+199
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_199'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_200'/>
+200
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_200'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_201'/>
+201
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_201'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Escapes the given Unicode code point in UTF-8.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_202'/>
+202
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_202'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_203'/>
+203
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_203'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_204'/>
+204
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_204'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected char[] escape(int cp) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_205'/>
+205
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_205'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // We should never get negative values here but if we do it will throw</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_206'/>
+206
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_206'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // an</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_207'/>
+207
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_207'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // IndexOutOfBoundsException, so at least it will get spotted.</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_208'/>
+208
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_208'>3</a>
+<span>
+1. escape : changed conditional boundary &rarr; SURVIVED<br/>
+2. escape : negated conditional &rarr; NO_COVERAGE<br/>
+3. escape : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (cp &#60; safeOctets.length &#38;&#38; safeOctets[cp]) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_209'/>
+209
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_209'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_210'/>
+210
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_210'>2</a>
+<span>
+1. escape : negated conditional &rarr; SURVIVED<br/>
+2. escape : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        } else if (cp == &#39; &#39; &#38;&#38; plusForSpace) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_211'/>
+211
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_211'>1</a>
+<span>
+1. escape : replaced return value with null for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::escape &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return URI_ESCAPED_SPACE;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_212'/>
+212
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_212'>2</a>
+<span>
+1. escape : changed conditional boundary &rarr; SURVIVED<br/>
+2. escape : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        } else if (cp &#60;= 0x7F) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_213'/>
+213
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_213'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Single byte UTF-8 characters</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_214'/>
+214
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_214'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Start with &#34;%--&#34; and fill in the blanks</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_215'/>
+215
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_215'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            char[] dest = new char[3];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_216'/>
+216
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_216'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            dest[0] = &#39;%&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_217'/>
+217
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_217'>1</a>
+<span>
+1. escape : Replaced bitwise AND with OR &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            dest[2] = UPPER_HEX_DIGITS[cp &#38; 0xF];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_218'/>
+218
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_218'>1</a>
+<span>
+1. escape : Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            dest[1] = UPPER_HEX_DIGITS[cp &#62;&#62;&#62; 4];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_219'/>
+219
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_219'>1</a>
+<span>
+1. escape : replaced return value with null for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::escape &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return dest;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_220'/>
+220
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_220'>2</a>
+<span>
+1. escape : changed conditional boundary &rarr; SURVIVED<br/>
+2. escape : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        } else if (cp &#60;= 0x7ff) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_221'/>
+221
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_221'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Two byte UTF-8 characters [cp &#62;= 0x80 &#38;&#38; cp &#60;= 0x7ff]</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_222'/>
+222
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_222'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Start with &#34;%--%--&#34; and fill in the blanks</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_223'/>
+223
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_223'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            char[] dest = new char[6];</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_224'/>
+224
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_224'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            dest[0] = &#39;%&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_225'/>
+225
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_225'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            dest[3] = &#39;%&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_226'/>
+226
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_226'>1</a>
+<span>
+1. escape : Replaced bitwise AND with OR &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            dest[5] = UPPER_HEX_DIGITS[cp &#38; 0xF];</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_227'/>
+227
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_227'>1</a>
+<span>
+1. escape : Replaced Unsigned Shift Right with Shift Left &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            cp &#62;&#62;&#62;= 4;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_228'/>
+228
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_228'>2</a>
+<span>
+1. escape : Replaced bitwise AND with OR &rarr; KILLED<br/>
+2. escape : Replaced bitwise OR with AND &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            dest[4] = UPPER_HEX_DIGITS[0x8 | (cp &#38; 0x3)];</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_229'/>
+229
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_229'>1</a>
+<span>
+1. escape : Replaced Unsigned Shift Right with Shift Left &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            cp &#62;&#62;&#62;= 2;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_230'/>
+230
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_230'>1</a>
+<span>
+1. escape : Replaced bitwise AND with OR &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            dest[2] = UPPER_HEX_DIGITS[cp &#38; 0xF];</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_231'/>
+231
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_231'>1</a>
+<span>
+1. escape : Replaced Unsigned Shift Right with Shift Left &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            cp &#62;&#62;&#62;= 4;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_232'/>
+232
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_232'>1</a>
+<span>
+1. escape : Replaced bitwise OR with AND &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            dest[1] = UPPER_HEX_DIGITS[0xC | cp];</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_233'/>
+233
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_233'>1</a>
+<span>
+1. escape : replaced return value with null for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::escape &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return dest;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_234'/>
+234
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_234'>2</a>
+<span>
+1. escape : changed conditional boundary &rarr; NO_COVERAGE<br/>
+2. escape : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        } else if (cp &#60;= 0xffff) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_235'/>
+235
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_235'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Three byte UTF-8 characters [cp &#62;= 0x800 &#38;&#38; cp &#60;= 0xffff]</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_236'/>
+236
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_236'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Start with &#34;%E-%--%--&#34; and fill in the blanks</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_237'/>
+237
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_237'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            char[] dest = new char[9];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_238'/>
+238
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_238'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            dest[0] = &#39;%&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_239'/>
+239
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_239'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            dest[1] = &#39;E&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_240'/>
+240
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_240'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            dest[3] = &#39;%&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_241'/>
+241
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_241'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            dest[6] = &#39;%&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_242'/>
+242
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_242'>1</a>
+<span>
+1. escape : Replaced bitwise AND with OR &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            dest[8] = UPPER_HEX_DIGITS[cp &#38; 0xF];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_243'/>
+243
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_243'>1</a>
+<span>
+1. escape : Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            cp &#62;&#62;&#62;= 4;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_244'/>
+244
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_244'>2</a>
+<span>
+1. escape : Replaced bitwise AND with OR &rarr; NO_COVERAGE<br/>
+2. escape : Replaced bitwise OR with AND &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            dest[7] = UPPER_HEX_DIGITS[0x8 | (cp &#38; 0x3)];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_245'/>
+245
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_245'>1</a>
+<span>
+1. escape : Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            cp &#62;&#62;&#62;= 2;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_246'/>
+246
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_246'>1</a>
+<span>
+1. escape : Replaced bitwise AND with OR &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            dest[5] = UPPER_HEX_DIGITS[cp &#38; 0xF];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_247'/>
+247
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_247'>1</a>
+<span>
+1. escape : Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            cp &#62;&#62;&#62;= 4;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_248'/>
+248
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_248'>2</a>
+<span>
+1. escape : Replaced bitwise AND with OR &rarr; NO_COVERAGE<br/>
+2. escape : Replaced bitwise OR with AND &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            dest[4] = UPPER_HEX_DIGITS[0x8 | (cp &#38; 0x3)];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_249'/>
+249
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_249'>1</a>
+<span>
+1. escape : Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            cp &#62;&#62;&#62;= 2;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_250'/>
+250
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_250'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            dest[2] = UPPER_HEX_DIGITS[cp];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_251'/>
+251
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_251'>1</a>
+<span>
+1. escape : replaced return value with null for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::escape &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return dest;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_252'/>
+252
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_252'>2</a>
+<span>
+1. escape : changed conditional boundary &rarr; NO_COVERAGE<br/>
+2. escape : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        } else if (cp &#60;= 0x10ffff) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_253'/>
+253
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_253'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            char[] dest = new char[12];</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_254'/>
+254
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_254'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Four byte UTF-8 characters [cp &#62;= 0xffff &#38;&#38; cp &#60;= 0x10ffff]</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_255'/>
+255
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_255'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Start with &#34;%F-%--%--%--&#34; and fill in the blanks</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_256'/>
+256
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_256'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            dest[0] = &#39;%&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_257'/>
+257
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_257'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            dest[1] = &#39;F&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_258'/>
+258
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_258'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            dest[3] = &#39;%&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_259'/>
+259
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_259'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            dest[6] = &#39;%&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_260'/>
+260
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_260'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            dest[9] = &#39;%&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_261'/>
+261
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_261'>1</a>
+<span>
+1. escape : Replaced bitwise AND with OR &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            dest[11] = UPPER_HEX_DIGITS[cp &#38; 0xF];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_262'/>
+262
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_262'>1</a>
+<span>
+1. escape : Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            cp &#62;&#62;&#62;= 4;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_263'/>
+263
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_263'>2</a>
+<span>
+1. escape : Replaced bitwise AND with OR &rarr; NO_COVERAGE<br/>
+2. escape : Replaced bitwise OR with AND &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            dest[10] = UPPER_HEX_DIGITS[0x8 | (cp &#38; 0x3)];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_264'/>
+264
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_264'>1</a>
+<span>
+1. escape : Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            cp &#62;&#62;&#62;= 2;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_265'/>
+265
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_265'>1</a>
+<span>
+1. escape : Replaced bitwise AND with OR &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            dest[8] = UPPER_HEX_DIGITS[cp &#38; 0xF];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_266'/>
+266
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_266'>1</a>
+<span>
+1. escape : Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            cp &#62;&#62;&#62;= 4;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_267'/>
+267
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_267'>2</a>
+<span>
+1. escape : Replaced bitwise AND with OR &rarr; NO_COVERAGE<br/>
+2. escape : Replaced bitwise OR with AND &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            dest[7] = UPPER_HEX_DIGITS[0x8 | (cp &#38; 0x3)];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_268'/>
+268
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_268'>1</a>
+<span>
+1. escape : Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            cp &#62;&#62;&#62;= 2;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_269'/>
+269
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_269'>1</a>
+<span>
+1. escape : Replaced bitwise AND with OR &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            dest[5] = UPPER_HEX_DIGITS[cp &#38; 0xF];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_270'/>
+270
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_270'>1</a>
+<span>
+1. escape : Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            cp &#62;&#62;&#62;= 4;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_271'/>
+271
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_271'>2</a>
+<span>
+1. escape : Replaced bitwise AND with OR &rarr; NO_COVERAGE<br/>
+2. escape : Replaced bitwise OR with AND &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            dest[4] = UPPER_HEX_DIGITS[0x8 | (cp &#38; 0x3)];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_272'/>
+272
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_272'>1</a>
+<span>
+1. escape : Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            cp &#62;&#62;&#62;= 2;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_273'/>
+273
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_273'>1</a>
+<span>
+1. escape : Replaced bitwise AND with OR &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            dest[2] = UPPER_HEX_DIGITS[cp &#38; 0x7];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_274'/>
+274
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_274'>1</a>
+<span>
+1. escape : replaced return value with null for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::escape &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return dest;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_275'/>
+275
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_275'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_276'/>
+276
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_276'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // If this ever happens it is due to bug in UnicodeEscaper, not bad</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_277'/>
+277
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_277'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // input.</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_278'/>
+278
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_278'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw new IllegalArgumentException(&#34;Invalid unicode character value &#34; + cp);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_279'/>
+279
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_279'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_280'/>
+280
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_280'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67caffdc_281'/>
+281
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_281'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_122'>122</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_122'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_129'>129</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_129'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_133'>133</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_133'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_151'>151</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_151'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createSafeOctets<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_152'>152</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_152'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createSafeOctets<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>createSafeOctets<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_155'>155</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_155'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createSafeOctets<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>createSafeOctets<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_158'>158</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_158'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createSafeOctets<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>createSafeOctets<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_164'>164</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_164'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createSafeOctets<br/><b>Killed by : </b>none</span></span> replaced return value with null for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::createSafeOctets &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_174'>174</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_174'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>nextEscapeIndex<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>nextEscapeIndex<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; TIMED_OUT</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>nextEscapeIndex<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_176'>176</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_176'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>nextEscapeIndex<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>nextEscapeIndex<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>nextEscapeIndex<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_180'>180</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_180'/> 
+
+<p class='TIMED_OUT'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>nextEscapeIndex<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::nextEscapeIndex &rarr; TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_191'>191</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_191'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.nodes.NodeTest.testSetTag(org.yaml.snakeyaml.nodes.NodeTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.nodes.NodeTest.testSetTag(org.yaml.snakeyaml.nodes.NodeTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_193'>193</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_193'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.nodes.TagTest.testGetClassName(org.yaml.snakeyaml.nodes.TagTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.nodes.TagTest.testGetClassName(org.yaml.snakeyaml.nodes.TagTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_194'>194</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_194'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> replaced return value with &#34;&#34; for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::escape &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_197'>197</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_197'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.nodes.TagTest.testGetClassName(org.yaml.snakeyaml.nodes.TagTest)</span></span> replaced return value with &#34;&#34; for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::escape &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_208'>208</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_208'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> negated conditional &rarr; KILLED</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_210'>210</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_210'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_211'>211</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_211'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> replaced return value with null for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::escape &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_212'>212</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_212'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_217'>217</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_217'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced bitwise AND with OR &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_218'>218</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_218'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_219'>219</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_219'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> replaced return value with null for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::escape &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_220'>220</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_220'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_226'>226</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_226'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> Replaced bitwise AND with OR &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_227'>227</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_227'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> Replaced Unsigned Shift Right with Shift Left &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_228'>228</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_228'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> Replaced bitwise AND with OR &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> Replaced bitwise OR with AND &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_229'>229</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_229'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> Replaced Unsigned Shift Right with Shift Left &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_230'>230</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_230'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> Replaced bitwise AND with OR &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_231'>231</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_231'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> Replaced Unsigned Shift Right with Shift Left &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_232'>232</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_232'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> Replaced bitwise OR with AND &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_233'>233</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_233'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest)</span></span> replaced return value with null for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::escape &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_234'>234</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_234'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_242'>242</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_242'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced bitwise AND with OR &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_243'>243</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_243'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_244'>244</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_244'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced bitwise AND with OR &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced bitwise OR with AND &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_245'>245</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_245'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_246'>246</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_246'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced bitwise AND with OR &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_247'>247</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_247'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_248'>248</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_248'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced bitwise AND with OR &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced bitwise OR with AND &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_249'>249</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_249'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_251'>251</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_251'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> replaced return value with null for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::escape &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_252'>252</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_252'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_261'>261</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_261'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced bitwise AND with OR &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_262'>262</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_262'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_263'>263</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_263'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced bitwise AND with OR &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced bitwise OR with AND &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_264'>264</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_264'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_265'>265</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_265'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced bitwise AND with OR &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_266'>266</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_266'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_267'>267</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_267'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced bitwise AND with OR &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced bitwise OR with AND &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_268'>268</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_268'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_269'>269</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_269'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced bitwise AND with OR &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_270'>270</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_270'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_271'>271</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_271'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced bitwise AND with OR &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced bitwise OR with AND &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_272'>272</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_272'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced Unsigned Shift Right with Shift Left &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_273'>273</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_273'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> Replaced bitwise AND with OR &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67caffdc_274'>274</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67caffdc_274'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>escape<br/><b>Killed by : </b>none</span></span> replaced return value with null for org/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper::escape &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>BOOLEAN_FALSE_RETURN</li>
+<li class='mutator'>BOOLEAN_TRUE_RETURN</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>EMPTY_RETURN_VALUES</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>NULL_RETURN_VALUES</li>
+<li class='mutator'>PRIMITIVE_RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.yaml.snakeyaml.issues.issue203.GenericTest.testGenericInterface(org.yaml.snakeyaml.issues.issue203.GenericTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testEmptyDoc(org.yaml.snakeyaml.issues.issue9.NopropTest) (2 ms)</li><li>org.yaml.snakeyaml.CollectionWithBeanYamlTest.testYamlMap(org.yaml.snakeyaml.CollectionWithBeanYamlTest) (3 ms)</li><li>org.yaml.snakeyaml.constructor.VectorTest.testVector(org.yaml.snakeyaml.constructor.VectorTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue72.CollectionTest.testCollectionList(org.yaml.snakeyaml.issues.issue72.CollectionTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue55.JavaBeanListTest.testYaml(org.yaml.snakeyaml.issues.issue55.JavaBeanListTest) (3 ms)</li><li>org.yaml.snakeyaml.constructor.ImplicitTagsTest.testLoadClassTag(org.yaml.snakeyaml.constructor.ImplicitTagsTest) (8 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testEmptyDoc2(org.yaml.snakeyaml.issues.issue9.NopropTest) (2 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testChildrenSetAsRoot(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (5 ms)</li><li>org.yaml.snakeyaml.array.PrimitiveArrayTest.testStringCharArray(org.yaml.snakeyaml.array.PrimitiveArrayTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testOK06(org.yaml.snakeyaml.issues.issue9.NopropTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue40.DogFoodBeanTest.testBigDecimalPrecision(org.yaml.snakeyaml.issues.issue40.DogFoodBeanTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue49.CalendarTest.testDumpDstIsNotTheSame(org.yaml.snakeyaml.issues.issue49.CalendarTest) (3 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testPointBlock(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (2 ms)</li><li>org.yaml.snakeyaml.nodes.MappingNodeTest.testNullValue(org.yaml.snakeyaml.nodes.MappingNodeTest) (1 ms)</li><li>org.yaml.snakeyaml.array.PrimitiveArrayTest.testPromotion(org.yaml.snakeyaml.array.PrimitiveArrayTest) (2 ms)</li><li>org.yaml.snakeyaml.representer.RepresenterTest.testRepresenter(org.yaml.snakeyaml.representer.RepresenterTest) (3 ms)</li><li>org.yaml.snakeyaml.constructor.ImplicitTagsTest.testRootMap(org.yaml.snakeyaml.constructor.ImplicitTagsTest) (4 ms)</li><li>org.yaml.snakeyaml.TypeDescriptionTest.testSetTag(org.yaml.snakeyaml.TypeDescriptionTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.IncompleteBeanConstructorTest.testRepresentor(org.yaml.snakeyaml.constructor.IncompleteBeanConstructorTest) (1 ms)</li><li>org.yaml.snakeyaml.representer.FilterPropertyToDumpTest.testFilterPropertyWithTypeDesciptionIncludes(org.yaml.snakeyaml.representer.FilterPropertyToDumpTest) (16 ms)</li><li>org.yaml.snakeyaml.issues.issue348.MultiLevelImmutableTest.testUnexpectedRecursive(org.yaml.snakeyaml.issues.issue348.MultiLevelImmutableTest) (9 ms)</li><li>org.yaml.snakeyaml.constructor.ClassTagsTest.testLoadClassNoRoot(org.yaml.snakeyaml.constructor.ClassTagsTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue114.PreserveTypeTest.testPreserveType2(org.yaml.snakeyaml.issues.issue114.PreserveTypeTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testOK05(org.yaml.snakeyaml.issues.issue9.NopropTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest.testArrayAsMapValueWithTypeDespriptor(org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest) (12 ms)</li><li>org.yaml.snakeyaml.issues.issue145.LineNumberInExceptionTest.testCompleteThing(org.yaml.snakeyaml.issues.issue145.LineNumberInExceptionTest) (4 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testScalarContructor(org.yaml.snakeyaml.constructor.BeanConstructorTest) (4 ms)</li><li>org.yaml.snakeyaml.EnumTest.testLoadEnumBean2(org.yaml.snakeyaml.EnumTest) (22 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testABWithCustomTag(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (3 ms)</li><li>org.yaml.snakeyaml.constructor.MockDateBeanConstructorTest.testConstructor(org.yaml.snakeyaml.constructor.MockDateBeanConstructorTest) (4 ms)</li><li>org.yaml.snakeyaml.reader.IoReaderTest.testBigInput(org.yaml.snakeyaml.reader.IoReaderTest) (31 ms)</li><li>org.yaml.snakeyaml.issues.issue150.YamlLoadAsIssueTest.loadConstructsDocumentCorrectly(org.yaml.snakeyaml.issues.issue150.YamlLoadAsIssueTest) (2 ms)</li><li>org.yaml.snakeyaml.nodes.NodeTest.testSetTag(org.yaml.snakeyaml.nodes.NodeTest) (0 ms)</li><li>org.yaml.snakeyaml.representer.RepresentFieldTest.testStaticField(org.yaml.snakeyaml.representer.RepresentFieldTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testEmptyDoc3(org.yaml.snakeyaml.issues.issue9.NopropTest) (2 ms)</li><li>org.yaml.snakeyaml.representer.RepresentTest.testCustomRepresenter(org.yaml.snakeyaml.representer.RepresentTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue11.YamlMapTest.testYamlMapBean(org.yaml.snakeyaml.issues.issue11.YamlMapTest) (4 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testChildrenListRoot(org.yaml.snakeyaml.recursive.HumanTest) (33 ms)</li><li>org.yaml.snakeyaml.types.BinaryTagTest.testBinary2(org.yaml.snakeyaml.types.BinaryTagTest) (0 ms)</li><li>org.yaml.snakeyaml.issues.issue40.DogFoodBeanTest.testBigDecimalNoRootTag(org.yaml.snakeyaml.issues.issue40.DogFoodBeanTest) (4 ms)</li><li>org.yaml.snakeyaml.nodes.NodeTupleTest.testNodeTuple2(org.yaml.snakeyaml.nodes.NodeTupleTest) (0 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testOK04(org.yaml.snakeyaml.issues.issue9.NopropTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue183.NumberBeanTest.testNumberAsDoubleInfinity(org.yaml.snakeyaml.issues.issue183.NumberBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue103.MergingTest.testMergeWithDefaultMap(org.yaml.snakeyaml.issues.issue103.MergingTest) (14 ms)</li><li>org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest.testTag(org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue332.DataTest.testGetUnit(org.yaml.snakeyaml.issues.issue332.DataTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue306.UuidSupportTest.dumpBean(org.yaml.snakeyaml.issues.issue306.UuidSupportTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue116.NoFieldsTest.testEmptyClass(org.yaml.snakeyaml.issues.issue116.NoFieldsTest) (3 ms)</li><li>org.yaml.snakeyaml.Chapter2_4Test.testExample_2_22(org.yaml.snakeyaml.Chapter2_4Test) (9 ms)</li><li>org.yaml.snakeyaml.issues.issue383.RepresenterConfigurationTest.testAllowReadOnlyPropertiesNotOverridden(org.yaml.snakeyaml.issues.issue383.RepresenterConfigurationTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testOK03(org.yaml.snakeyaml.issues.issue9.NopropTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue48.SkipJavaBeanPropertyTest.testWithoutNull(org.yaml.snakeyaml.issues.issue48.SkipJavaBeanPropertyTest) (1 ms)</li><li>org.yaml.snakeyaml.nodes.TagsTest.testGetGlobalTagForClass(org.yaml.snakeyaml.nodes.TagsTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue73.RecursiveSortedSetTest.testDumpException(org.yaml.snakeyaml.issues.issue73.RecursiveSortedSetTest) (8 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testOK02(org.yaml.snakeyaml.issues.issue9.NopropTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue318.ContextClassLoaderTest.domainInDifferentConstructor(org.yaml.snakeyaml.issues.issue318.ContextClassLoaderTest) (498 ms)</li><li>org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest.defaultConfigUniqueKeysWorks(org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest) (3 ms)</li><li>org.yaml.snakeyaml.JavaBeanWithNullValuesTest.testNoRootTag(org.yaml.snakeyaml.JavaBeanWithNullValuesTest) (11 ms)</li><li>org.yaml.snakeyaml.issues.issue306.UuidSupportTest.dumpUuid(org.yaml.snakeyaml.issues.issue306.UuidSupportTest) (1 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testPointOnlyOneArgument(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue49.CalendarTest.testDumpDstIsTheSame(org.yaml.snakeyaml.issues.issue49.CalendarTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue60.SkipBeanTest.testSkipNull(org.yaml.snakeyaml.issues.issue60.SkipBeanTest) (13 ms)</li><li>org.yaml.snakeyaml.immutable.MoreImmutablesTest.testAwtColor(org.yaml.snakeyaml.immutable.MoreImmutablesTest) (84 ms)</li><li>org.yaml.snakeyaml.issues.issue56.PerlTest.testMaps(org.yaml.snakeyaml.issues.issue56.PerlTest) (59 ms)</li><li>org.yaml.snakeyaml.issues.issue383.RepresenterConfigurationTest.testReadOnlyPropertiesNotAllowedByDefault(org.yaml.snakeyaml.issues.issue383.RepresenterConfigurationTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue115.ParameterizedJavaBeanTest.testAsStandalone(org.yaml.snakeyaml.issues.issue115.ParameterizedJavaBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest.testYaml(org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest) (6 ms)</li><li>org.yaml.snakeyaml.nodes.SequenceNodeTest.testGetNodeId(org.yaml.snakeyaml.nodes.SequenceNodeTest) (1 ms)</li><li>org.yaml.snakeyaml.Chapter2_4Test.testExample_2_26(org.yaml.snakeyaml.Chapter2_4Test) (6 ms)</li><li>org.yaml.snakeyaml.nodes.TagTest.testEqualsObject(org.yaml.snakeyaml.nodes.TagTest) (1 ms)</li><li>org.yaml.snakeyaml.types.BoolTagTest.testBoolTag(org.yaml.snakeyaml.types.BoolTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue116.NoFieldsTest.testSpecialHiddenParameter(org.yaml.snakeyaml.issues.issue116.NoFieldsTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue183.NumberBeanTest.testNumberAsDouble(org.yaml.snakeyaml.issues.issue183.NumberBeanTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInSetTest.testSet2(org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInSetTest) (1 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testBeanRing(org.yaml.snakeyaml.recursive.HumanTest) (18 ms)</li><li>org.yaml.snakeyaml.issues.issue207.OctalNumberTest.testOctalNumbersMoreThenSeven(org.yaml.snakeyaml.issues.issue207.OctalNumberTest) (2 ms)</li><li>org.yaml.snakeyaml.JavaBeanWithNullValuesTest.testNull(org.yaml.snakeyaml.JavaBeanWithNullValuesTest) (6 ms)</li><li>org.yaml.snakeyaml.issues.issue60.CustomOrderTest.testUnsorted(org.yaml.snakeyaml.issues.issue60.CustomOrderTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue102.BigDataLoadTest.testBigStreamData(org.yaml.snakeyaml.issues.issue102.BigDataLoadTest) (5092 ms)</li><li>org.yaml.snakeyaml.types.StrTagTest.testStringShorthand(org.yaml.snakeyaml.types.StrTagTest) (1 ms)</li><li>org.yaml.snakeyaml.representer.RepresentFieldTest.testRepresent1(org.yaml.snakeyaml.representer.RepresentFieldTest) (11 ms)</li><li>org.yaml.snakeyaml.EnumTest.testDumpEnumList(org.yaml.snakeyaml.EnumTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.FilterClassesConstructorTest.testGetClassForName(org.yaml.snakeyaml.constructor.FilterClassesConstructorTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue145.LineNumberInExceptionTest.testLineReport(org.yaml.snakeyaml.issues.issue145.LineNumberInExceptionTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testCharacter(org.yaml.snakeyaml.constructor.BeanConstructorTest) (13 ms)</li><li>org.yaml.snakeyaml.issues.issue177.PointBeanTest.testNoSingleQuoteForBlockStyle(org.yaml.snakeyaml.issues.issue177.PointBeanTest) (6 ms)</li><li>org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest.testEmptyBean1(org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest.testDumpCustomTag(org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest) (2 ms)</li><li>org.yaml.snakeyaml.javabeans.TriangleBeanTest.testClassNotFound(org.yaml.snakeyaml.javabeans.TriangleBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testChildrenMapAsRoot(org.yaml.snakeyaml.recursive.HumanTest) (7 ms)</li><li>org.yaml.snakeyaml.issues.issue94.ChangeRuntimeClassTest.testWithGlobalTagUsingTypeDescription(org.yaml.snakeyaml.issues.issue94.ChangeRuntimeClassTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue437.BinaryRoundTripTest.testBinary(org.yaml.snakeyaml.issues.issue437.BinaryRoundTripTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue73.DumpSetAsSequenceExampleTest.testDumpFlow(org.yaml.snakeyaml.issues.issue73.DumpSetAsSequenceExampleTest) (5 ms)</li><li>org.yaml.snakeyaml.representer.FilterPropertyToDumpTest.testFilterPropertyInJavaBeanDumper(org.yaml.snakeyaml.representer.FilterPropertyToDumpTest) (2 ms)</li><li>org.yaml.snakeyaml.array.PrimitiveArrayTest.testMultiDimensional(org.yaml.snakeyaml.array.PrimitiveArrayTest) (43 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testChildren3(org.yaml.snakeyaml.recursive.HumanTest) (12 ms)</li><li>org.yaml.snakeyaml.issues.issue116.NoFieldsTest.testHiddenParameter(org.yaml.snakeyaml.issues.issue116.NoFieldsTest) (3 ms)</li><li>org.yaml.snakeyaml.composer.ComposerImplTest.testComposeBean(org.yaml.snakeyaml.composer.ComposerImplTest) (1 ms)</li><li>org.yaml.snakeyaml.Chapter2_3Test.testExample_2_17(org.yaml.snakeyaml.Chapter2_3Test) (11 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testBA(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (7 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testSuperColor(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (2 ms)</li><li>org.yaml.snakeyaml.types.StrTagTest.testStringTag(org.yaml.snakeyaml.types.StrTagTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.IncompleteBeanConstructorTest.testConstructor2(org.yaml.snakeyaml.constructor.IncompleteBeanConstructorTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue73.RecursiveSortedSetTest.testLoadRecursiveTest(org.yaml.snakeyaml.issues.issue73.RecursiveSortedSetTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue94.ChangeRuntimeClassTest.testNoTagWithTypeDescription(org.yaml.snakeyaml.issues.issue94.ChangeRuntimeClassTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest.testLoadRootSet3(org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest) (2 ms)</li><li>org.yaml.snakeyaml.Chapter2_4Test.testExample_2_23(org.yaml.snakeyaml.Chapter2_4Test) (7 ms)</li><li>org.yaml.snakeyaml.javabeans.TriangleBeanTest.testGetTriangle(org.yaml.snakeyaml.javabeans.TriangleBeanTest) (4 ms)</li><li>org.yaml.snakeyaml.constructor.ConstructorTest.testWrongName(org.yaml.snakeyaml.constructor.ConstructorTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.ConstructorTest.testJavaBeanLoad(org.yaml.snakeyaml.constructor.ConstructorTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue47.ReadOnlyPropertiesTest.testBean2(org.yaml.snakeyaml.issues.issue47.ReadOnlyPropertiesTest) (2 ms)</li><li>org.yaml.snakeyaml.immutable.DogImmutableTest.testHouse(org.yaml.snakeyaml.immutable.DogImmutableTest) (3 ms)</li><li>org.yaml.snakeyaml.EnumTest.testLoadEnumBean(org.yaml.snakeyaml.EnumTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue154.MissingPropertyTest.testUnknownField(org.yaml.snakeyaml.issues.issue154.MissingPropertyTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest.testDump(org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue46.FileTest.test(org.yaml.snakeyaml.issues.issue46.FileTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue99.YamlBase64Test.testRedefineBinaryTag(org.yaml.snakeyaml.issues.issue99.YamlBase64Test) (7 ms)</li><li>org.yaml.snakeyaml.types.IntTagTest.testIntTag(org.yaml.snakeyaml.types.IntTagTest) (1 ms)</li><li>org.yaml.snakeyaml.javabeans.TriangleBeanTest.testClassAndTag(org.yaml.snakeyaml.javabeans.TriangleBeanTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue99.YamlBase64Test.testYamlBase64Loading(org.yaml.snakeyaml.issues.issue99.YamlBase64Test) (7 ms)</li><li>org.yaml.snakeyaml.issues.issue40.DogFoodBeanTest.testOwnBigDecimal(org.yaml.snakeyaml.issues.issue40.DogFoodBeanTest) (1 ms)</li><li>org.yaml.snakeyaml.types.TimestampTagTest.testTimestampShorthand(org.yaml.snakeyaml.types.TimestampTagTest) (1 ms)</li><li>org.yaml.snakeyaml.types.MapTagTest.testMapYaml11(org.yaml.snakeyaml.types.MapTagTest) (6 ms)</li><li>org.yaml.snakeyaml.issues.issue56.PerlTest.testJavaBean(org.yaml.snakeyaml.issues.issue56.PerlTest) (55 ms)</li><li>org.yaml.snakeyaml.issues.issue58.NullValueDumperTest.testNullListElement(org.yaml.snakeyaml.issues.issue58.NullValueDumperTest) (2 ms)</li><li>org.yaml.snakeyaml.generics.ObjectValuesTest.testObjectValues(org.yaml.snakeyaml.generics.ObjectValuesTest) (6 ms)</li><li>org.yaml.snakeyaml.issues.issue48.SkipJavaBeanPropertyTest.testWithNull(org.yaml.snakeyaml.issues.issue48.SkipJavaBeanPropertyTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue144.FloatPropertyTest.testFloatAsJavaBeanProperty(org.yaml.snakeyaml.issues.issue144.FloatPropertyTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue374.NumberAsJavaBeanPropertyTest.testNumberAsInteger(org.yaml.snakeyaml.issues.issue374.NumberAsJavaBeanPropertyTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue73.RecursiveSortedSetTest.testLoadException(org.yaml.snakeyaml.issues.issue73.RecursiveSortedSetTest) (3 ms)</li><li>org.yaml.snakeyaml.Example2_24Test.testExample_2_24(org.yaml.snakeyaml.Example2_24Test) (10 ms)</li><li>org.yaml.snakeyaml.Example2_27Test.testExample_2_27(org.yaml.snakeyaml.Example2_27Test) (45 ms)</li><li>org.yaml.snakeyaml.generics.ObjectValuesTest.testObjectValuesWithParam(org.yaml.snakeyaml.generics.ObjectValuesTest) (7 ms)</li><li>org.yaml.snakeyaml.issues.issue55.YamlFieldAccessCollectionTest.testYamlFailure(org.yaml.snakeyaml.issues.issue55.YamlFieldAccessCollectionTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue149.GlobalDirectivesTest.testDirectives(org.yaml.snakeyaml.issues.issue149.GlobalDirectivesTest) (6 ms)</li><li>org.yaml.snakeyaml.issues.issue374.NumberAsJavaBeanPropertyTest.testNumberAsLong(org.yaml.snakeyaml.issues.issue374.NumberAsJavaBeanPropertyTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue137.SupplementaryCharactersTest.testLoadingEmoji(org.yaml.snakeyaml.issues.issue137.SupplementaryCharactersTest) (110 ms)</li><li>org.yaml.snakeyaml.issues.issue183.NumberBeanTest.testNumberAsFloatInfinity(org.yaml.snakeyaml.issues.issue183.NumberBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.javabeans.HouseTest.testDump1(org.yaml.snakeyaml.javabeans.HouseTest) (13 ms)</li><li>org.yaml.snakeyaml.issues.issue149.GlobalDirectivesTest.testOneDocument(org.yaml.snakeyaml.issues.issue149.GlobalDirectivesTest) (3 ms)</li><li>org.yaml.snakeyaml.serialization.TransientValuesTest.testDumpTransientFieldsAndProperties(org.yaml.snakeyaml.serialization.TransientValuesTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInSetTest.testSet(org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInSetTest) (2 ms)</li><li>org.yaml.snakeyaml.recursive.Human_WithArrayOfChildrenTest.testParseChildrenArrayWithoutRootTag(org.yaml.snakeyaml.recursive.Human_WithArrayOfChildrenTest) (6 ms)</li><li>org.yaml.snakeyaml.javabeans.LongTest.testLongRepresenter(org.yaml.snakeyaml.javabeans.LongTest) (2 ms)</li><li>org.yaml.snakeyaml.TypeDescriptionTest.testToString(org.yaml.snakeyaml.TypeDescriptionTest) (1 ms)</li><li>org.yaml.snakeyaml.array.PrimitiveArrayTest.testCycle(org.yaml.snakeyaml.array.PrimitiveArrayTest) (95 ms)</li><li>org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest.testDumpEscapedTag(org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest) (4 ms)</li><li>org.yaml.snakeyaml.resolver.ResolverTest.testAddImplicitResolver2(org.yaml.snakeyaml.resolver.ResolverTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue61.GenericMapBeanTest.testGenericMap(org.yaml.snakeyaml.issues.issue61.GenericMapBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue10.BasicDumpTest.testTag3(org.yaml.snakeyaml.issues.issue10.BasicDumpTest) (4 ms)</li><li>org.yaml.snakeyaml.types.NullTagTest.testNullTag(org.yaml.snakeyaml.types.NullTagTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest.testWithGlobalTag(org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest) (9 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testScalarContructorException(org.yaml.snakeyaml.constructor.BeanConstructorTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue10.BasicDumpTest.testTag2(org.yaml.snakeyaml.issues.issue10.BasicDumpTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue103.MergingTest.testMergeWithFakeMap(org.yaml.snakeyaml.issues.issue103.MergingTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testAB_Set(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue124.DumpTest.testDumperFlowStyle(org.yaml.snakeyaml.issues.issue124.DumpTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest.testMergeAndDeviate(org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest) (14 ms)</li><li>org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest.testEmptyBean3(org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest) (1 ms)</li><li>org.yaml.snakeyaml.util.UriEncoderTest.testEncode(org.yaml.snakeyaml.util.UriEncoderTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue133.StackOverflowTest.testDump(org.yaml.snakeyaml.issues.issue133.StackOverflowTest) (4 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testPrimitivesConstructor(org.yaml.snakeyaml.constructor.BeanConstructorTest) (43 ms)</li><li>org.yaml.snakeyaml.array.PrimitiveArrayTest.testValidConstructor(org.yaml.snakeyaml.array.PrimitiveArrayTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue112.ParameterisedTypeLoadingTestCase.testParameterisedTypeLoading(org.yaml.snakeyaml.issues.issue112.ParameterisedTypeLoadingTestCase) (57 ms)</li><li>org.yaml.snakeyaml.issues.issue137.SupplementaryCharactersTest.testDumpNonPrintableCharacter(org.yaml.snakeyaml.issues.issue137.SupplementaryCharactersTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue61.GenericListBeanTest.testGenericBean(org.yaml.snakeyaml.issues.issue61.GenericListBeanTest) (7 ms)</li><li>org.yaml.snakeyaml.issues.issue100.MergeMapsTest.testExplicitMergeTag(org.yaml.snakeyaml.issues.issue100.MergeMapsTest) (4 ms)</li><li>org.yaml.snakeyaml.constructor.ClassTagsTest.testLoadClassTag(org.yaml.snakeyaml.constructor.ClassTagsTest) (8 ms)</li><li>org.yaml.snakeyaml.issues.issue115.ParameterizedJavaBeanTest.testAsJavaBeanProperty(org.yaml.snakeyaml.issues.issue115.ParameterizedJavaBeanTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testABwithJavaBeanHelpers(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue183.NumberBeanTest.testNumberAsNegativeDoubleInfinity(org.yaml.snakeyaml.issues.issue183.NumberBeanTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue335.JavaLangObjectTest.testLoadObjectAsScalar(org.yaml.snakeyaml.issues.issue335.JavaLangObjectTest) (1 ms)</li><li>org.yaml.snakeyaml.types.FloatTagTest.testFloatShorthand(org.yaml.snakeyaml.types.FloatTagTest) (0 ms)</li><li>org.yaml.snakeyaml.issues.issue322_382.PropertyWithoutGetterTest.testStaticFooWithGetter(org.yaml.snakeyaml.issues.issue322_382.PropertyWithoutGetterTest) (3 ms)</li><li>org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest.testTypeSafeMap(org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest) (10 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testABPropertyWithCustomTag(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (6 ms)</li><li>org.yaml.snakeyaml.constructor.ArrayTagsTest.testFlowBlock(org.yaml.snakeyaml.constructor.ArrayTagsTest) (4 ms)</li><li>org.yaml.snakeyaml.javabeans.HouseTest.testDump2(org.yaml.snakeyaml.javabeans.HouseTest) (5 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testPoint2(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (29 ms)</li><li>org.yaml.snakeyaml.issues.issue94.ChangeRuntimeClassTest.testWithGlobalTag(org.yaml.snakeyaml.issues.issue94.ChangeRuntimeClassTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest.testTypeSafeMap2(org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest) (13 ms)</li><li>org.yaml.snakeyaml.issues.issue58.NullValueDumperTest.testListElement(org.yaml.snakeyaml.issues.issue58.NullValueDumperTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue409.DumpEnumAsJavabeanPropertyTest.testDumpExtendedEnum(org.yaml.snakeyaml.issues.issue409.DumpEnumAsJavabeanPropertyTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue306.UuidSupportTest.dumpAsString(org.yaml.snakeyaml.issues.issue306.UuidSupportTest) (29 ms)</li><li>org.yaml.snakeyaml.immutable.MoreImmutablesTest.testRectangle(org.yaml.snakeyaml.immutable.MoreImmutablesTest) (3 ms)</li><li>org.yaml.snakeyaml.types.NullTagTest.testNullShorthand(org.yaml.snakeyaml.types.NullTagTest) (1 ms)</li><li>org.yaml.snakeyaml.javabeans.StringArrayTest.testStrings(org.yaml.snakeyaml.javabeans.StringArrayTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue383.RepresenterConfigurationTest.testAllowReadOnlyPropertiesOverridden(org.yaml.snakeyaml.issues.issue383.RepresenterConfigurationTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue64.ParameterizedTypeTest.testRepresenter(org.yaml.snakeyaml.issues.issue64.ParameterizedTypeTest) (13 ms)</li><li>org.yaml.snakeyaml.recursive.Human_WithArrayOfChildrenTest.testDumpChildrenArrayWithoutRootTag(org.yaml.snakeyaml.recursive.Human_WithArrayOfChildrenTest) (5 ms)</li><li>org.yaml.snakeyaml.constructor.BigDecimalBeanConstructorTest.testRepresentor(org.yaml.snakeyaml.constructor.BigDecimalBeanConstructorTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue124.DumpTest.testDumperOptionsSideEffect(org.yaml.snakeyaml.issues.issue124.DumpTest) (2 ms)</li><li>org.yaml.snakeyaml.EnumTest.testLoadEnumMap(org.yaml.snakeyaml.EnumTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.BigDecimalBeanConstructorTest.testConstructor(org.yaml.snakeyaml.constructor.BigDecimalBeanConstructorTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue154.MissingPropertyTest.testSkipMissingProperties(org.yaml.snakeyaml.issues.issue154.MissingPropertyTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue49.CalendarTest.testDumpDstIgnored(org.yaml.snakeyaml.issues.issue49.CalendarTest) (5 ms)</li><li>org.yaml.snakeyaml.types.MapTagTest.testMap(org.yaml.snakeyaml.types.MapTagTest) (5 ms)</li><li>org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest.testEmptyBean2(org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue74.ArrayBeanTest.testArrayProperty(org.yaml.snakeyaml.issues.issue74.ArrayBeanTest) (15 ms)</li><li>org.yaml.snakeyaml.issues.issue49.CalendarTest.testMoreThen10hours(org.yaml.snakeyaml.issues.issue49.CalendarTest) (2 ms)</li><li>org.yaml.snakeyaml.BinaryJavaBeanTest.testBeanTest(org.yaml.snakeyaml.BinaryJavaBeanTest) (99 ms)</li><li>org.yaml.snakeyaml.EnumBeanGenTest.testLoadNoTags(org.yaml.snakeyaml.EnumBeanGenTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue149.GlobalDirectivesTest.testDirectives2(org.yaml.snakeyaml.issues.issue149.GlobalDirectivesTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue72.CollectionTest.testCollectionSet(org.yaml.snakeyaml.issues.issue72.CollectionTest) (15 ms)</li><li>org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest.testMergeBeanProperty(org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest) (6 ms)</li><li>org.yaml.snakeyaml.generics.GenericArrayTypeTest.testJavaBean(org.yaml.snakeyaml.generics.GenericArrayTypeTest) (6 ms)</li><li>org.yaml.snakeyaml.issues.issue60.SkipBeanTest.testSkipEmptyCollections(org.yaml.snakeyaml.issues.issue60.SkipBeanTest) (3 ms)</li><li>org.yaml.snakeyaml.types.SetTagTest.testSetNull(org.yaml.snakeyaml.types.SetTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue94.ChangeRuntimeClassTest.testNoTag(org.yaml.snakeyaml.issues.issue94.ChangeRuntimeClassTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testEmptyBean2(org.yaml.snakeyaml.issues.issue9.NopropTest) (6 ms)</li><li>org.yaml.snakeyaml.types.BinaryTagTest.testBinary(org.yaml.snakeyaml.types.BinaryTagTest) (1 ms)</li><li>org.yaml.snakeyaml.ruby.RubyTest.testEmitWithTags2WithoutTagForParentJavabean(org.yaml.snakeyaml.ruby.RubyTest) (9 ms)</li><li>org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest.testMergeAndDeviateOverride(org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue11.YamlMapTest.testYamlMap(org.yaml.snakeyaml.issues.issue11.YamlMapTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest.testLoad(org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest) (4 ms)</li><li>org.yaml.snakeyaml.javabeans.HouseTest.testDump3(org.yaml.snakeyaml.javabeans.HouseTest) (14 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testShape(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (6 ms)</li><li>org.yaml.snakeyaml.issues.issue155.BinaryTest.testBinaryString(org.yaml.snakeyaml.issues.issue155.BinaryTest) (1 ms)</li><li>org.yaml.snakeyaml.resolver.ImplicitResolverTest.testMain(org.yaml.snakeyaml.resolver.ImplicitResolverTest) (114 ms)</li><li>org.yaml.snakeyaml.issues.issue49.CalendarTest.testLoadBean(org.yaml.snakeyaml.issues.issue49.CalendarTest) (3 ms)</li><li>org.yaml.snakeyaml.EnumTest.testLoadWrongEnum(org.yaml.snakeyaml.EnumTest) (3 ms)</li><li>org.yaml.snakeyaml.generics.BirdTest.testHome(org.yaml.snakeyaml.generics.BirdTest) (7 ms)</li><li>org.yaml.snakeyaml.issues.issue311.BooleanEnumTest.loadEnum(org.yaml.snakeyaml.issues.issue311.BooleanEnumTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest.testMergeMapToJavaBean(org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue124.DumpTest.testDumperNullStyle2(org.yaml.snakeyaml.issues.issue124.DumpTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.CustomClassLoaderConstructorTest.testGetClassForNameBean(org.yaml.snakeyaml.constructor.CustomClassLoaderConstructorTest) (4 ms)</li><li>org.yaml.snakeyaml.Chapter2_3Test.testExample_2_17_control(org.yaml.snakeyaml.Chapter2_3Test) (6 ms)</li><li>org.yaml.snakeyaml.issues.issue73.DumpSetAsSequenceExampleTest.testDumpBlock(org.yaml.snakeyaml.issues.issue73.DumpSetAsSequenceExampleTest) (33 ms)</li><li>org.yaml.snakeyaml.issues.issue99.YamlBase64Test.testYamlBase64LoadingLiteral(org.yaml.snakeyaml.issues.issue99.YamlBase64Test) (7 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testChildren(org.yaml.snakeyaml.recursive.HumanTest) (28 ms)</li><li>org.yaml.snakeyaml.Chapter2_5Test.testExample_2_28(org.yaml.snakeyaml.Chapter2_5Test) (59 ms)</li><li>org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest.testLoad(org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest) (4 ms)</li><li>org.yaml.snakeyaml.recursive.Human_WithArrayOfChildrenTest.testChildrenArray(org.yaml.snakeyaml.recursive.Human_WithArrayOfChildrenTest) (12 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testPrivateMethod(org.yaml.snakeyaml.constructor.BeanConstructorTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue124.DumpTest.testDumperAutoStyle(org.yaml.snakeyaml.issues.issue124.DumpTest) (4 ms)</li><li>org.yaml.snakeyaml.nodes.TagTest.testUri2(org.yaml.snakeyaml.nodes.TagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testEmptyBean(org.yaml.snakeyaml.issues.issue9.NopropTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testABProperty(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (9 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testShapeNoTags(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (38 ms)</li><li>org.yaml.snakeyaml.issues.issue124.DumpTest.testDumperNullTag(org.yaml.snakeyaml.issues.issue124.DumpTest) (1 ms)</li><li>org.yaml.snakeyaml.immutable.primitives.ImmutablePrimitivesTest.testPrimitivesLong(org.yaml.snakeyaml.immutable.primitives.ImmutablePrimitivesTest) (1 ms)</li><li>org.yaml.snakeyaml.Chapter2_4Test.testExample_2_23_picture(org.yaml.snakeyaml.Chapter2_4Test) (36 ms)</li><li>org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest.testArrayAsListValueWithTypeDespriptor(org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.ImplicitTagsTest.testDefaultRepresenter(org.yaml.snakeyaml.constructor.ImplicitTagsTest) (8 ms)</li><li>org.yaml.snakeyaml.types.PairsTagTest.testPairs(org.yaml.snakeyaml.types.PairsTagTest) (4 ms)</li><li>org.yaml.snakeyaml.types.TimestampTagTest.testTimestampTag(org.yaml.snakeyaml.types.TimestampTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue311.BooleanEnumTest.loadEnumUndefined(org.yaml.snakeyaml.issues.issue311.BooleanEnumTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.ConstructorTest.testGetConstructorFromScalar(org.yaml.snakeyaml.constructor.ConstructorTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue310.PropertyWithPrivateCostructorTest.loadFromString(org.yaml.snakeyaml.issues.issue310.PropertyWithPrivateCostructorTest) (1 ms)</li><li>org.yaml.snakeyaml.ruby.RubyTest.testEmitNoTags(org.yaml.snakeyaml.ruby.RubyTest) (11 ms)</li><li>org.yaml.snakeyaml.issues.issue60.CustomOrderTest.testReversedOrder(org.yaml.snakeyaml.issues.issue60.CustomOrderTest) (25 ms)</li><li>org.yaml.snakeyaml.issues.issue112.ParameterisedTypeLoadingTestCase.testJavaBeanLoader(org.yaml.snakeyaml.issues.issue112.ParameterisedTypeLoadingTestCase) (27 ms)</li><li>org.yaml.snakeyaml.nodes.NodeTest.testNode(org.yaml.snakeyaml.nodes.NodeTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue150.YamlLoadAsIssueTest.ignoreImplicitTag(org.yaml.snakeyaml.issues.issue150.YamlLoadAsIssueTest) (5 ms)</li><li>org.yaml.snakeyaml.resolver.ResolverTest.testAddImplicitResolver(org.yaml.snakeyaml.resolver.ResolverTest) (3 ms)</li><li>org.yaml.snakeyaml.representer.RepresenterTest.testRepresenterNoConstructorAvailable(org.yaml.snakeyaml.representer.RepresenterTest) (3 ms)</li><li>org.yaml.snakeyaml.EnumTest.testDumpEnumArray(org.yaml.snakeyaml.EnumTest) (2 ms)</li><li>org.yaml.snakeyaml.immutable.MoreImmutablesTest.testMatteBorder(org.yaml.snakeyaml.immutable.MoreImmutablesTest) (6 ms)</li><li>org.yaml.snakeyaml.array.PrimitiveArrayTest.testTruncation(org.yaml.snakeyaml.array.PrimitiveArrayTest) (4 ms)</li><li>org.yaml.snakeyaml.constructor.IncompleteBeanConstructorTest.testConstructor(org.yaml.snakeyaml.constructor.IncompleteBeanConstructorTest) (4 ms)</li><li>org.yaml.snakeyaml.constructor.BigDecimalBeanConstructorTest.testConstructorAtomic(org.yaml.snakeyaml.constructor.BigDecimalBeanConstructorTest) (3 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testCode(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (3 ms)</li><li>org.yaml.snakeyaml.types.FloatTagTest.testFloatTag(org.yaml.snakeyaml.types.FloatTagTest) (1 ms)</li><li>org.yaml.snakeyaml.partialconstruct.FragmentComposerTest.testFragment(org.yaml.snakeyaml.partialconstruct.FragmentComposerTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue97.YamlSortedSetTest.testYaml(org.yaml.snakeyaml.issues.issue97.YamlSortedSetTest) (2 ms)</li><li>org.yaml.snakeyaml.resolver.ResolverTupleTest.testToString(org.yaml.snakeyaml.resolver.ResolverTupleTest) (1 ms)</li><li>org.yaml.snakeyaml.types.IntTagTest.testIntShorthand(org.yaml.snakeyaml.types.IntTagTest) (1 ms)</li><li>org.yaml.snakeyaml.representer.FilterPropertyToDumpTest.testFilterPropertyInYaml(org.yaml.snakeyaml.representer.FilterPropertyToDumpTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.ClassTagsTest.testDumpClassTag(org.yaml.snakeyaml.constructor.ClassTagsTest) (39 ms)</li><li>org.yaml.snakeyaml.issues.issue111.LongUriTest.testLongURIEscape(org.yaml.snakeyaml.issues.issue111.LongUriTest) (5 ms)</li><li>org.yaml.snakeyaml.serializer.SerializerTest.testSerializerIsClosed2(org.yaml.snakeyaml.serializer.SerializerTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInSetTest.testSetNoSpaces(org.yaml.snakeyaml.issues.issue397.ColonInFlowContextInSetTest) (1 ms)</li><li>org.yaml.snakeyaml.nodes.SequenceNodeTest.testNullValue(org.yaml.snakeyaml.nodes.SequenceNodeTest) (1 ms)</li><li>org.yaml.snakeyaml.EnumTest.testDumpEnumMap(org.yaml.snakeyaml.EnumTest) (2 ms)</li><li>org.yaml.snakeyaml.EnumTest.testDumpOverriddenToString(org.yaml.snakeyaml.EnumTest) (2 ms)</li><li>org.yaml.snakeyaml.nodes.TagsTest.testLong(org.yaml.snakeyaml.nodes.TagsTest) (3 ms)</li><li>org.yaml.snakeyaml.EnumBeanGenTest.testDumpEnumBean(org.yaml.snakeyaml.EnumBeanGenTest) (9 ms)</li><li>org.yaml.snakeyaml.issues.issue183.NumberBeanTest.testNumberAsFloatNaN(org.yaml.snakeyaml.issues.issue183.NumberBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.ClassTagsTest.testLoadUnknounClassTag(org.yaml.snakeyaml.constructor.ClassTagsTest) (4 ms)</li><li>org.yaml.snakeyaml.types.SetTagTest.testSet(org.yaml.snakeyaml.types.SetTagTest) (5 ms)</li><li>org.yaml.snakeyaml.ruby.RubyTest.testEmitWithTags(org.yaml.snakeyaml.ruby.RubyTest) (5 ms)</li><li>org.yaml.snakeyaml.representer.RepresentFieldTest.testWrongNotPublicField(org.yaml.snakeyaml.representer.RepresentFieldTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue335.JavaLangObjectTest.testLoadObjectAsMapping(org.yaml.snakeyaml.issues.issue335.JavaLangObjectTest) (1 ms)</li><li>org.yaml.snakeyaml.types.BinaryTagTest.testByteArray(org.yaml.snakeyaml.types.BinaryTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest.errorOnDuplicateKeys(org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest) (2 ms)</li><li>org.yaml.snakeyaml.types.BinaryTagTest.testBinaryTag(org.yaml.snakeyaml.types.BinaryTagTest) (1 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testChildrenMapAsRoot(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (7 ms)</li><li>org.yaml.snakeyaml.EnumTest.testLoadEnum(org.yaml.snakeyaml.EnumTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue383.RepresenterConfigurationTest.testDefaultFlowStyleNotOverridden(org.yaml.snakeyaml.issues.issue383.RepresenterConfigurationTest) (1 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testNoChildren(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (6 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testChildrenListRoot(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (29 ms)</li><li>org.yaml.snakeyaml.issues.issue55.YamlFieldAccessCollectionTest.testYaml(org.yaml.snakeyaml.issues.issue55.YamlFieldAccessCollectionTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testAB_asMapValue(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (5 ms)</li><li>org.yaml.snakeyaml.constructor.ArrayTagsTest.testLoadClassNoRoot(org.yaml.snakeyaml.constructor.ArrayTagsTest) (4 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testColor(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.ConstructorTest.testGetBeanAssumeClass(org.yaml.snakeyaml.constructor.ConstructorTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue322_382.PropertyWithoutGetterTest.testStaticFooWithoutGetter(org.yaml.snakeyaml.issues.issue322_382.PropertyWithoutGetterTest) (2 ms)</li><li>org.yaml.snakeyaml.representer.FilterPropertyToDumpTest.testFilterPropertyWithTypeDesciptionExcludes(org.yaml.snakeyaml.representer.FilterPropertyToDumpTest) (3 ms)</li><li>org.yaml.snakeyaml.JavaBeanTimeStampTest.testLoadDefaultJavaSqlTimestampNoGlobalTag(org.yaml.snakeyaml.JavaBeanTimeStampTest) (3 ms)</li><li>org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest.testTypeSafeList(org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest) (3 ms)</li><li>org.yaml.snakeyaml.EnumBeanGenTest.testLoadNoTag4GenEnumProperty(org.yaml.snakeyaml.EnumBeanGenTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue183.NumberBeanTest.testNumberAsInteger(org.yaml.snakeyaml.issues.issue183.NumberBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest.testMergeWithTags(org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest) (4 ms)</li><li>org.yaml.snakeyaml.immutable.DogImmutableTest.testDog(org.yaml.snakeyaml.immutable.DogImmutableTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.SafeConstructorTest.testSafeConstructJavaBean(org.yaml.snakeyaml.constructor.SafeConstructorTest) (2 ms)</li><li>org.yaml.snakeyaml.Chapter2_4Test.testExample_2_23_non_date(org.yaml.snakeyaml.Chapter2_4Test) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue50.SnakeyamlTest.testIntrospector(org.yaml.snakeyaml.issues.issue50.SnakeyamlTest) (8 ms)</li><li>org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest.testArrayAsMapValue(org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.ConstructorTest.testGetConstructorBean(org.yaml.snakeyaml.constructor.ConstructorTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue49.CalendarTest.testNepal(org.yaml.snakeyaml.issues.issue49.CalendarTest) (3 ms)</li><li>org.yaml.snakeyaml.error.WrappedExceptionsTest.testUnWrapped(org.yaml.snakeyaml.error.WrappedExceptionsTest) (1 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testSuperColorFail(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue332.DataTest.testLoad(org.yaml.snakeyaml.issues.issue332.DataTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.ImplicitTagsTest.testNoRootTag(org.yaml.snakeyaml.constructor.ImplicitTagsTest) (7 ms)</li><li>org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest.errorOnDuplicateKeysInJavaBeanProperty(org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue73.ArrayListTest.testListImplementation(org.yaml.snakeyaml.issues.issue73.ArrayListTest) (4 ms)</li><li>org.yaml.snakeyaml.types.OmapTagTest.testOmap(org.yaml.snakeyaml.types.OmapTagTest) (5 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testChildrenPretty(org.yaml.snakeyaml.recursive.HumanTest) (28 ms)</li><li>org.yaml.snakeyaml.JavaBeanWithNullValuesTest.testNullStringAndBoolean(org.yaml.snakeyaml.JavaBeanWithNullValuesTest) (7 ms)</li><li>org.yaml.snakeyaml.nodes.NodeTupleTest.testNodeTuple1(org.yaml.snakeyaml.nodes.NodeTupleTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest.testMergeBeanToMap(org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue124.DumpTest.testDumperNullStyle(org.yaml.snakeyaml.issues.issue124.DumpTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue55.FieldListTest.testFailureWithoutFieldAccess(org.yaml.snakeyaml.issues.issue55.FieldListTest) (5 ms)</li><li>org.yaml.snakeyaml.nodes.TagTest.testToString(org.yaml.snakeyaml.nodes.TagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest.testArrayAsListValue(org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest) (3 ms)</li><li>org.yaml.snakeyaml.EnumTest.testDumpEnumBean(org.yaml.snakeyaml.EnumTest) (4 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testPoint(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest.testLoadRootSet6(org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest) (3 ms)</li><li>org.yaml.snakeyaml.constructor.ArrayTagsTest.testDefaultRepresenter(org.yaml.snakeyaml.constructor.ArrayTagsTest) (6 ms)</li><li>org.yaml.snakeyaml.EnumTest.testLoadOverridenToString(org.yaml.snakeyaml.EnumTest) (2 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testPoint3d(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue73.RecursiveSetTest.testLoadRecursiveTest(org.yaml.snakeyaml.issues.issue73.RecursiveSetTest) (25 ms)</li><li>org.yaml.snakeyaml.error.WrappedExceptionsTest.testWrapped(org.yaml.snakeyaml.error.WrappedExceptionsTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue311.BooleanEnumTest.dumpEnum(org.yaml.snakeyaml.issues.issue311.BooleanEnumTest) (2 ms)</li><li>org.yaml.snakeyaml.javabeans.LongTest.testLongFail(org.yaml.snakeyaml.javabeans.LongTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testInvalidKey(org.yaml.snakeyaml.constructor.BeanConstructorTest) (3 ms)</li><li>org.yaml.snakeyaml.nodes.TagTest.testUri1(org.yaml.snakeyaml.nodes.TagTest) (1 ms)</li><li>org.yaml.snakeyaml.constructor.ClassTagsTest.testDefaultRepresenter(org.yaml.snakeyaml.constructor.ClassTagsTest) (5 ms)</li><li>org.yaml.snakeyaml.constructor.ArrayTagsTest.testLoadClassTag(org.yaml.snakeyaml.constructor.ArrayTagsTest) (6 ms)</li><li>org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest.noDuplicatesConfigMutablePostChange(org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest) (2 ms)</li><li>org.yaml.snakeyaml.emitter.template.VelocityTest.testTemplate1(org.yaml.snakeyaml.emitter.template.VelocityTest) (303 ms)</li><li>org.yaml.snakeyaml.generics.GenericArrayTypeTest.testClasses(org.yaml.snakeyaml.generics.GenericArrayTypeTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue10.BasicDumpTest.testTag(org.yaml.snakeyaml.issues.issue10.BasicDumpTest) (10 ms)</li><li>org.yaml.snakeyaml.issues.issue73.RecursiveSetTest.testLoadException(org.yaml.snakeyaml.issues.issue73.RecursiveSetTest) (3 ms)</li><li>org.yaml.snakeyaml.javabeans.StringArrayTest.testStringsPretty(org.yaml.snakeyaml.javabeans.StringArrayTest) (2 ms)</li><li>org.yaml.snakeyaml.emitter.EmitterMultiLineTest.testWriteMultiLineList(org.yaml.snakeyaml.emitter.EmitterMultiLineTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue383.RepresenterConfigurationTest.testDefaultFlowStyleIsOverridden(org.yaml.snakeyaml.issues.issue383.RepresenterConfigurationTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue351.MergedOrderTest.mergedLinkedMapOrder(org.yaml.snakeyaml.issues.issue351.MergedOrderTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest.testNoTags(org.yaml.snakeyaml.issues.issue95.ArrayInGenericCollectionTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest.testLoadRootSet2(org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue154.MissingPropertyTest.testPublicField(org.yaml.snakeyaml.issues.issue154.MissingPropertyTest) (1 ms)</li><li>org.yaml.snakeyaml.JavaBeanTimeStampTest.testLoadDefaultJavaSqlTimestamp(org.yaml.snakeyaml.JavaBeanTimeStampTest) (29 ms)</li><li>org.yaml.snakeyaml.EnumTest.testLoadEnumList(org.yaml.snakeyaml.EnumTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue47.ReadOnlyPropertiesTest.testBean1(org.yaml.snakeyaml.issues.issue47.ReadOnlyPropertiesTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue115.ParameterizedTest.testAsJavaBeanProperty(org.yaml.snakeyaml.issues.issue115.ParameterizedTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue182.InfinityFloatBeanTest.testInfinityFloatBean(org.yaml.snakeyaml.issues.issue182.InfinityFloatBeanTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue349.YamlBase64BinaryTest.testLocalBinaryTags(org.yaml.snakeyaml.issues.issue349.YamlBase64BinaryTest) (17 ms)</li><li>org.yaml.snakeyaml.issues.issue154.MissingPropertyTest.testNoSkipMissingProperties(org.yaml.snakeyaml.issues.issue154.MissingPropertyTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue11.YamlMapTest.testYaml(org.yaml.snakeyaml.issues.issue11.YamlMapTest) (2 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testChildren(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (9 ms)</li><li>org.yaml.snakeyaml.issues.issue29.FlexibleScalarStylesInJavaBeanTest.testDifferentStyles(org.yaml.snakeyaml.issues.issue29.FlexibleScalarStylesInJavaBeanTest) (5 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testBeanRing(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (17 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testNonBean(org.yaml.snakeyaml.issues.issue9.NopropTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue8.PrattleRepresenterTest.test(org.yaml.snakeyaml.issues.issue8.PrattleRepresenterTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue145.LineNumberInExceptionTest.testWrongParameter(org.yaml.snakeyaml.issues.issue145.LineNumberInExceptionTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest.testDump(org.yaml.snakeyaml.issues.issue67.NonAsciiCharsInClassNameTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue183.NumberBeanTest.testNumberAsNegativeFloatInfinity(org.yaml.snakeyaml.issues.issue183.NumberBeanTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue55.YamlFieldAccessCollectionTest.testYamlDefaultWithFeildAccess(org.yaml.snakeyaml.issues.issue55.YamlFieldAccessCollectionTest) (3 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testNoEmptyConstructor(org.yaml.snakeyaml.constructor.BeanConstructorTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue373.UnknownRepresenterTest.testIndicatorIndentMuchSmaller(org.yaml.snakeyaml.issues.issue373.UnknownRepresenterTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue183.NumberBeanTest.testNumberAsDoubleNaN(org.yaml.snakeyaml.issues.issue183.NumberBeanTest) (1 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testNoChildrenPretty(org.yaml.snakeyaml.recursive.HumanTest) (10 ms)</li><li>org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest.testEmptyBean(org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue9.NopropTest.testOK01(org.yaml.snakeyaml.issues.issue9.NopropTest) (5 ms)</li><li>org.yaml.snakeyaml.EnumTest.testDumpEnumMap2(org.yaml.snakeyaml.EnumTest) (3 ms)</li><li>org.yaml.snakeyaml.emitter.template.VelocityTest.testNoTemplate(org.yaml.snakeyaml.emitter.template.VelocityTest) (8 ms)</li><li>org.yaml.snakeyaml.types.BoolTagTest.testBoolShorthand(org.yaml.snakeyaml.types.BoolTagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue310.PropertyWithPrivateCostructorTest.dumpNload(org.yaml.snakeyaml.issues.issue310.PropertyWithPrivateCostructorTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue374.NumberAsJavaBeanPropertyTest.testNumberAsDouble(org.yaml.snakeyaml.issues.issue374.NumberAsJavaBeanPropertyTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue306.UuidSupportTest.loadFromBean(org.yaml.snakeyaml.issues.issue306.UuidSupportTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue55.JavaBeanListTest.testFailureWithoutFieldAccess(org.yaml.snakeyaml.issues.issue55.JavaBeanListTest) (5 ms)</li><li>org.yaml.snakeyaml.issues.issue114.PreserveTypeTest.testPreserveType1(org.yaml.snakeyaml.issues.issue114.PreserveTypeTest) (6 ms)</li><li>org.yaml.snakeyaml.immutable.primitives.ImmutablePrimitivesTest.testPrimitivesException(org.yaml.snakeyaml.immutable.primitives.ImmutablePrimitivesTest) (1 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testChildren2(org.yaml.snakeyaml.recursive.HumanTest) (24 ms)</li><li>org.yaml.snakeyaml.issues.issue115.ParameterizedTest.testAsStandalone(org.yaml.snakeyaml.issues.issue115.ParameterizedTest) (25 ms)</li><li>org.yaml.snakeyaml.CollectionWithBeanYamlTest.testYamlList(org.yaml.snakeyaml.CollectionWithBeanYamlTest) (5 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testStaticField(org.yaml.snakeyaml.constructor.BeanConstructorTest) (2 ms)</li><li>org.yaml.snakeyaml.Chapter2_4Test.testExample_2_25(org.yaml.snakeyaml.Chapter2_4Test) (5 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testChildren3(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (10 ms)</li><li>org.yaml.snakeyaml.types.SeqTagTest.testSeq(org.yaml.snakeyaml.types.SeqTagTest) (16 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testCode4(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue49.CalendarTest.testLoadWithTag(org.yaml.snakeyaml.issues.issue49.CalendarTest) (2 ms)</li><li>org.yaml.snakeyaml.nodes.NodeTest.testGetEndMark(org.yaml.snakeyaml.nodes.NodeTest) (1 ms)</li><li>org.yaml.snakeyaml.immutable.MoreImmutablesTest.testInsets(org.yaml.snakeyaml.immutable.MoreImmutablesTest) (2 ms)</li><li>org.yaml.snakeyaml.EnumTest.testDumpEnum(org.yaml.snakeyaml.EnumTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue99.YamlBase64Test.testLocalBinaryTag(org.yaml.snakeyaml.issues.issue99.YamlBase64Test) (9 ms)</li><li>org.yaml.snakeyaml.issues.issue61.GenericMapBeanTest.testGenericBean(org.yaml.snakeyaml.issues.issue61.GenericMapBeanTest) (18 ms)</li><li>org.yaml.snakeyaml.javabeans.LongTest.testLongConstructor(org.yaml.snakeyaml.javabeans.LongTest) (3 ms)</li><li>org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest.testTypeSafeList2(org.yaml.snakeyaml.constructor.TypeSafeCollectionsTest) (6 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testChildrenSetAsRoot(org.yaml.snakeyaml.recursive.HumanTest) (11 ms)</li><li>org.yaml.snakeyaml.issues.issue124.DumpTest.testDumperDifferentTag(org.yaml.snakeyaml.issues.issue124.DumpTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testAB_asMapKey(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (6 ms)</li><li>org.yaml.snakeyaml.constructor.PrefixConstructorTest.test1(org.yaml.snakeyaml.constructor.PrefixConstructorTest) (5 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testNoChildren(org.yaml.snakeyaml.recursive.HumanTest) (30 ms)</li><li>org.yaml.snakeyaml.issues.issue38.BigNumberIdTest.testBigNumberFormat(org.yaml.snakeyaml.issues.issue38.BigNumberIdTest) (223 ms)</li><li>org.yaml.snakeyaml.representer.RepresenterTest.testRepresenterGetterWithException(org.yaml.snakeyaml.representer.RepresenterTest) (4 ms)</li><li>org.yaml.snakeyaml.issues.issue56.PerlTest.testJavaBeanWithTypeDescription(org.yaml.snakeyaml.issues.issue56.PerlTest) (47 ms)</li><li>org.yaml.snakeyaml.nodes.ScalarNodeTest.testToString(org.yaml.snakeyaml.nodes.ScalarNodeTest) (1 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testCode2(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (2 ms)</li><li>org.yaml.snakeyaml.nodes.TagTest.testGetClassNameError(org.yaml.snakeyaml.nodes.TagTest) (1 ms)</li><li>org.yaml.snakeyaml.nodes.TagTest.testCreate(org.yaml.snakeyaml.nodes.TagTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest.testNoMerge(org.yaml.snakeyaml.issues.issue100.MergeJavaBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.constructor.CustomClassLoaderConstructorTest.testGetClassForNameWithRoot(org.yaml.snakeyaml.constructor.CustomClassLoaderConstructorTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue322_382.PropertyWithoutGetterTest.testPublicFooWithPublicFields(org.yaml.snakeyaml.issues.issue322_382.PropertyWithoutGetterTest) (3 ms)</li><li>org.yaml.snakeyaml.nodes.TagTest.testGetClassName(org.yaml.snakeyaml.nodes.TagTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue102.BigDataLoadTest.testBigStringData(org.yaml.snakeyaml.issues.issue102.BigDataLoadTest) (2579 ms)</li><li>org.yaml.snakeyaml.constructor.BeanConstructorTest.testKeyNotScalar(org.yaml.snakeyaml.constructor.BeanConstructorTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue8.PrattleRepresenterTest.test2beans(org.yaml.snakeyaml.issues.issue8.PrattleRepresenterTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest.defaultConfigurationNoErrorsWithDuplicates(org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest) (3 ms)</li><li>org.yaml.snakeyaml.issues.issue55.FieldListTest.testYaml(org.yaml.snakeyaml.issues.issue55.FieldListTest) (5 ms)</li><li>org.yaml.snakeyaml.JavaBeanWithNullValuesTest.testNotNull(org.yaml.snakeyaml.JavaBeanWithNullValuesTest) (10 ms)</li><li>org.yaml.snakeyaml.issues.issue61.GenericListBeanTest.testGenericList(org.yaml.snakeyaml.issues.issue61.GenericListBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.ruby.RubyTest.testParse(org.yaml.snakeyaml.ruby.RubyTest) (4 ms)</li><li>org.yaml.snakeyaml.Chapter2_2Test.testExample_2_11(org.yaml.snakeyaml.Chapter2_2Test) (20 ms)</li><li>org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest.acceptDuplicateKeysInJavaBeanProperty(org.yaml.snakeyaml.issues.issue337.DuplicateKeyTest) (7 ms)</li><li>org.yaml.snakeyaml.immutable.primitives.ImmutablePrimitivesTest.testPrimitives(org.yaml.snakeyaml.immutable.primitives.ImmutablePrimitivesTest) (2 ms)</li><li>org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest.testEmptyBean5(org.yaml.snakeyaml.javabeans.ConstructEmptyBeanTest) (2 ms)</li><li>org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest.testLoadRootSet(org.yaml.snakeyaml.issues.issue73.SetAsSequenceTest) (4 ms)</li><li>org.yaml.snakeyaml.array.PrimitiveArrayTest.testInvalidConstructors(org.yaml.snakeyaml.array.PrimitiveArrayTest) (8 ms)</li><li>org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest.testAB(org.yaml.snakeyaml.issues.issue82.PropOrderInfluenceWhenAliasedInGenericCollectionTest) (18 ms)</li><li>org.yaml.snakeyaml.stress.StressEmitterTest.testPerformance(org.yaml.snakeyaml.stress.StressEmitterTest) (4130 ms)</li><li>org.yaml.snakeyaml.representer.FilterPropertyToDumpTest.testDoNotFilterPropertyIncludeReadOnly(org.yaml.snakeyaml.representer.FilterPropertyToDumpTest) (13 ms)</li><li>org.yaml.snakeyaml.issues.issue142.DerivedMapTest.testDerivedMap(org.yaml.snakeyaml.issues.issue142.DerivedMapTest) (20 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testNoChildren2(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (16 ms)</li><li>org.yaml.snakeyaml.recursive.generics.HumanGenericsTest.testChildren2(org.yaml.snakeyaml.recursive.generics.HumanGenericsTest) (21 ms)</li><li>org.yaml.snakeyaml.recursive.HumanTest.testChildrenWithoutRootTag(org.yaml.snakeyaml.recursive.HumanTest) (17 ms)</li><li>org.yaml.snakeyaml.nodes.ScalarNodeTest.testGetNodeId(org.yaml.snakeyaml.nodes.ScalarNodeTest) (1 ms)</li><li>org.yaml.snakeyaml.immutable.ShapeImmutableTest.testCode3(org.yaml.snakeyaml.immutable.ShapeImmutableTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue193.AbstractBeanTest.testErrorMessage(org.yaml.snakeyaml.issues.issue193.AbstractBeanTest) (1 ms)</li><li>org.yaml.snakeyaml.issues.issue73.TreeSetTest.testSetImplementation(org.yaml.snakeyaml.issues.issue73.TreeSetTest) (4 ms)</li><li>org.yaml.snakeyaml.serializer.SerializerTest.testSerializerIsNotOpened2(org.yaml.snakeyaml.serializer.SerializerTest) (1 ms)</li><li>org.yaml.snakeyaml.EnumTest.testDumpEnumListNoAnchor(org.yaml.snakeyaml.EnumTest) (1 ms)</li><li>org.yaml.snakeyaml.EnumBeanGenTest.testLoadEnumBeanExplicitTags(org.yaml.snakeyaml.EnumBeanGenTest) (3 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.5.1
+
+</body>
+</html>
