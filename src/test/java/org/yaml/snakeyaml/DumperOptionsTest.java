@@ -170,6 +170,9 @@ public class DumperOptionsTest extends TestCase {
             assertTrue(true);
         }
         //
+        // Insert between lines 172-173 of DumpOptionsTest.java:
+        options.setIndent(1);
+        options.setIndent(10);
         assertTrue(Emitter.MIN_INDENT > 0);
         assertTrue(Emitter.MIN_INDENT < Emitter.MAX_INDENT);
         assertTrue(Emitter.MAX_INDENT < 20);
